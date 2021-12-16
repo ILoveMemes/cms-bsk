@@ -16,7 +16,7 @@ public class IndexController {
 
     @RequestMapping({"", "/", "index", "index.html"})
     public String index(Model model) {
-        model.addAttribute("site_caption", varConfig.getSiteCaption());
+        model.addAttribute("site_caption", "Ремонт компьютеро в Борисоглебске");
 
         model.addAttribute("top_caption", "МегаПринт | Борисоглебск");
         model.addAttribute("top_phone", "8 (473 54) 6-58-88");
