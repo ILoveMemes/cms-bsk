@@ -1,5 +1,6 @@
 package com.cms.megaprint.controllers;
 
+import com.cms.megaprint.configuration.VarConfig;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -7,9 +8,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class IndexController {
 
+    private final VarConfig varConfig;
+
+    public IndexController(VarConfig varConfig) {
+        this.varConfig = varConfig;
+    }
+
     @RequestMapping({"", "/", "index", "index.html"})
     public String index(Model model) {
-        model.addAttribute("site_caption", "Ремонт компьютеро в Борисоглебске");
+        model.addAttribute("site_caption", varConfig.getSiteCaption());
 
         model.addAttribute("top_caption", "МегаПринт | Борисоглебск");
         model.addAttribute("top_phone", "8 (473 54) 6-58-88");
