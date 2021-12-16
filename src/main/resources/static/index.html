@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<html lang="en">
     <head>
-        <title th:text="${site_caption}">Index</title>
+        <title>Urbanic Bootstrap CSS Template</title>
         <meta name="keywords" content="" />
 		<meta name="description" content="" />
 <!--
@@ -14,9 +14,7 @@ https://templatemo.com/tm-395-urbanic
         
         <!-- Google Web Font Embed -->
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
-        <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&apikey=de52f4a5-e074-425f-b600-fc8a725c1e8e"
-                type="text/javascript"></script>
-
+        
         <!-- Bootstrap core CSS -->
         <link href="css/bootstrap.css" rel='stylesheet' type='text/css'>
 
@@ -38,11 +36,11 @@ https://templatemo.com/tm-395-urbanic
                 <div class="subheader">
                     <div id="phone" class="pull-left">
                             <img src="images/phone.png" alt="phone"/>
-                        <span th:text="${top_phone}"></span>
+                            020-060-0260
                     </div>
                     <div id="email" class="pull-right">
                             <img src="images/email.png" alt="email"/>
-                        <span th:text="${top_email}"></span>
+                            info@company.com
                     </div>
                 </div>
             </div>
@@ -59,15 +57,17 @@ https://templatemo.com/tm-395-urbanic
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
                                 </button>
-                            <h1><a href="#" class="navbar-brand" th:text="${top_caption}"></a></h1>
+                                <a href="#" class="navbar-brand"><img src="images/templatemo_logo.png" alt="Urbanic Template" title="Urbanic Template" /></a>
                         </div>
                         <div class="navbar-collapse collapse" id="templatemo-nav-bar">
                             <ul class="nav navbar-nav navbar-right" style="margin-top: 40px;">
-                                <li class="active"><a href="#templatemo-top">Домой</a></li>
-                                <li><a href="#templatemo-about">О нас</a></li>
-                                <li><a href="#templatemo-portfolio">Портфолио</a></li>
-                                <li><a href="#templatemo-blog">Блог</a></li>
-                                <li><a href="#templatemo-contact">Контакты</a></li>
+                                <li class="active"><a href="#templatemo-top">HOME</a></li>
+                                <li><a href="#templatemo-about">ABOUT</a></li>
+                                <li><a href="#templatemo-portfolio">PORTFOLIO</a></li>
+                                <li><a href="#templatemo-blog">BLOG</a></li>
+                                <li><a rel="nofollow" href="https://fb.com/templatemo" 
+                                		class="external-link" target="_parent">EXTERNAL</a></li>
+                                <li><a href="#templatemo-contact">CONTACT</a></li>
                             </ul>
                         </div><!--/.nav-collapse -->
                     </div><!--/.container-fluid -->
@@ -88,11 +88,10 @@ https://templatemo.com/tm-395-urbanic
                     <div class="item active">
                         <div class="container">
                             <div class="carousel-caption">
-                                <h1>ДОБРО ПОЖАЛОВАТЬ В МЕГАПРИНТ</h1>
-                                <div style="height:120px;"></div>
-                                <!--p>CHOOSE THE ONE SUITABLE FOR YOU</p>
+                                <h1>WELCOME TO URBANIC</h1>
+                                <p>CHOOSE THE ONE SUITABLE FOR YOU</p>
                                 <p><a class="btn btn-lg btn-green" href="#" role="button" style="margin: 20px;">View Demo</a> 
-                                	<a class="btn btn-lg btn-orange" href="#" role="button">Free Download</a></p-->
+                                	<a class="btn btn-lg btn-orange" href="#" role="button">Free Download</a></p>
                             </div>
                         </div>
                     </div>
@@ -101,10 +100,12 @@ https://templatemo.com/tm-395-urbanic
                         <div class="container">
                                 <div class="carousel-caption">
                                     <div class="col-sm-6 col-md-6">
-                                        <p>Вы можете быть уверены в том, что ваш компьютер будет отремонтирован и качественно настроен за минимальное время.</p>
+                                    	<h1>FLUID</h1>
+                                        <p>Suspendisse pellentesque, odio vel ultricies interdum, mauris nulla ullamcorper magna, non aliquet odio velit aliquam augue.</p>
                                     </div>
                                     <div class="col-sm-6 col-md-6">
-                                        <p>Мы приложим все усилия, чтобы ваш главный рабочий инструмент и средство отдыха работал без сбоев.</p>
+                                    	<h1>ENERGY</h1>
+                                        <p>Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nullam mattis fringilla urna.</p>
                                     </div>
                                 </div>
                         </div>
@@ -112,17 +113,9 @@ https://templatemo.com/tm-395-urbanic
                         <div class="item">
                             <div class="container">
                                 <div class="carousel-caption">
-                                	<h1>Проверьте файл антивирусом</h1>
-                                    <form method="POST" id="drweb_online_scan_form" enctype="multipart/form-data" action="http://online.drweb.com/result/" target="drweb_scan_form_popup_window">
-                                        <div style="">
-                                            <div style="padding: 0px;">
-                                                <input style="display:none;" name="file" id="file_selection_input" type="file" size="17">
-                                                <label style="float:left; padding: 3px;" for="file_selection_input" class="btn-orange">Выберите файл</label>
-                                                <input style="float:right;" type="image" onclick="return do_scan_file_01();" src="../images/button.gif" width="115" height="21">
-                                            </div>
-                                        </div>
-                                    </form>
-                                    <div style="height:120px;"></div>
+                                	<h1>RESPONSIVE LAYOUT</h1>
+                                    <p>Urbanic Bootstrap Theme is free to download and use for your sites. <br>This layout is based on Bootstrap framework.</p>
+                                    <p><a class="btn btn-lg btn-orange" href="#" role="button">Read More</a></p>
                                 </div>
                             </div>
                         </div>
@@ -134,63 +127,9 @@ https://templatemo.com/tm-395-urbanic
 
         <div class="templatemo-welcome" id="templatemo-welcome">
             <div class="container">
-                <div class="col-md-12 templatemo-slogan text-center">
-                    <!--span class="txt_darkgrey" th:text="${center_welcome}">Welcome to </span>
-                    <span class="txt_orange" th:text="' '+${center_company_name}">Company</span-->
-                    <p class="txt_slogan" th:utext="${center_text}"><i>Lorem ipsum</i></p>
-                    <div class="col-md-4 templatemo-service-item">
-                        <p>
-                        Ведь в нашем сервисном центре оказываются максимально качественные и оперативные услуги.
-                        <br>
-                        Благодаря тому, что в нашем сервисном центре используется исключительно качественное
-                        оборудование и лицензионное программное обеспечение, Вы всегда можете быть уверенны в том,
-                        что проведенный ремонт ноутбуков и компьютеров оправдает все Ваши ожидания, ведь в нашем
-                        сервисном центре Вам будут предложены максимально качественные услуги,так что Вы не останетесь
-                        разочарованны.
-                        <br>
-                        Мы являемся партнерами компании ОАО "ИнфоТеКС Интернет Траст" которая предоставляет полный
-                        спектр услуг для Юридических лиц и Индивидуальных предпринимателей в области сдачи электронной
-                        отчетности в контролирующие органы. Поэтому мы имеем возможность предоставлять услуги этой
-                        фирмы в г.Борисоглебск
-                        </p>
-                    </div>
-                    <div class="col-md-4 templatemo-service-item">
-                        <p>
-                        Мы являемся партнерами лидера российского рынка интернет-сервисов безопасности «Доктор Веб»
-                        <br>
-                        Также мы являемся партнерами компании Entensys. Entensys(Общество с ограниченной
-                        ответственностью «еСЛ Девелопмент») является ведущим российским разработчиком программных
-                        продуктов и решений в области информационной безопасности. Технологии Entensys позволяют
-                        обеспечивать защиту организаций и конечных пользователей от интернет-угроз, решают проблемы
-                        фильтрации интернет и почтового трафика, а также осуществляют множество других полезных
-                        функций. Продукты Entensys используются как в России, так и за рубежом.От флагманского решения
-                        UserGate Proxy & Firewall компания пришла к целой продуктовой линейке:
-                        </p>
-                        <ul>
-                            <li>UserGate Proxy & Firewall</li>
-                            <li>UserGate Mail Server</li>
-                            <li>GateWall DNS Filter</li>
-                            <li>GateWall Mail Security</li>
-                            <li>KinderGate Родительский Контроль</li>
-                        </ul>
-                    </div>
-                    <div class="col-md-4 templatemo-service-item">
-                        <p>
-                        Также Entensys выпустила бесплатный продукт UserGate Instant Messengers Control
-                        <br>
-                        Более подробную информацию вы можете узнать на сайте компании
-                        <a href="https://www.usergate.com/ru">Entensys</a>
-                        <br>
-                        В современном мире дорога каждая копейка. Именно поэтому в нашем сервисном центре услуги не
-                        только качественные, но и максимально доступные. За дополнительной информацией обращайтесь по
-                        телефонам, указанным на нашем сайте. Мы ждем Вас в нашем сервисном центре.
-                        <br>
-                        Мы являемся партнерами компании «1С»
-                        <br>
-                        «1С-ГЭНДАЛЬФ» является крупнейшим дистрибьютором фирмы «1С» в России, а также партнером ведущих
-                        мировых производителей программного обеспечения.
-                        </p>
-                    </div>
+                <div class="templatemo-slogan text-center">
+                    <span class="txt_darkgrey">Welcome to </span><span class="txt_orange">Urbanic Design</span>
+                    <p class="txt_slogan"><i>Lorem ipsum dolor sit amet, consect adipiscing elit. Etiam metus libero mauriec ignissim fermentum.</i></p>
                 </div>	
             </div>
         </div>
@@ -198,30 +137,16 @@ https://templatemo.com/tm-395-urbanic
         <div class="templatemo-service">
             <div class="container">
                 <div class="row">
-                    <div class="templatemo-line-header" style="margin-top:0px;" >
-                        <div class="text-center">
-                            <hr class="team_hr team_hr_left hr_gray"/><span class="txt_darkgrey">УСЛУГИ</span>
-                            <hr class="team_hr team_hr_right hr_gray" />
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
                     <div class="col-md-4">
                         <div class="templatemo-service-item">
                             <div>
                                 <img src="images/leaf.png" alt="icon" />
-                                <span class="templatemo-service-item-header">КОМПЬЮТЕРЫ</span>
+                                <span class="templatemo-service-item-header">AWESOME ICONS</span>
                             </div>
-                            <ul>
-                                <li>Продажа компьютеров</li>
-                                <li>Ремонт компьютеров, планшетов, мониторов</li>
-                                <li>Диагностика компьютеров</li>
-                                <li>Апгрейд (модернизация) компьютера</li>
-                            </ul>
-
+                            <p>You do not need to provide a back link to us. You can freely use this template for any purpose. Donec eu lacus in diam euismod imperdiet eu ut turpis. Morbi felis orci, tincidunt pretium laoreet id.</p>
                             <div class="text-center">
                             	<a href="#" 
-                                	class="templatemo-btn-read-more btn btn-orange">Подробнее</a>
+                                	class="templatemo-btn-read-more btn btn-orange">READ MORE</a>
                             </div>
                             <br class="clearfix"/>
                         </div>
@@ -232,16 +157,11 @@ https://templatemo.com/tm-395-urbanic
                         <div class="templatemo-service-item">
                             <div>
                                 <img src="images/mobile.png" alt="icon"/>
-                                <span class="templatemo-service-item-header">ПРОГРАММЫ</span>
+                                <span class="templatemo-service-item-header">FULLY RESPONSIVE</span>
                             </div>
-                            <ul>
-                                <li>Установка и настройка операционной системы</li>
-                                <li>Установка и настройка драйверов и программного обеспечения</li>
-                                <li>Удаление вирусов</li>
-                                <li>Антивирусная защита</li>
-                            </ul>
+							<p>Urbanic Template is free Bootstrap CSS layout provided by TemplateMo. Credits go to <a rel="nofollow" href="https://getbootstrap.com" target="_parent">Bootstrap</a> and <a rel="nofollow" href="https://unsplash.com" target="_parent">Unsplash</a> for images used in this template. You may share our website link to your friends. Thank you for visiting.</p>
                             <div class="text-center">
-                                <a href="#" class="templatemo-btn-read-more btn btn-orange">Подробнее</a>
+                                <a href="#" class="templatemo-btn-read-more btn btn-orange">READ MORE</a>
                             </div>
                             <br class="clearfix"/>
                         </div>
@@ -252,16 +172,12 @@ https://templatemo.com/tm-395-urbanic
                         <div class="templatemo-service-item">
                             <div>
                                 <img src="images/battery.png" alt="icon"/>
-                                <span class="templatemo-service-item-header">ОРГТЕХНИКА</span>
+                                <span class="templatemo-service-item-header">HIGH EFFICIENCY</span>
                             </div>
-                            <ul>
-                                <li>Заправка картриджей</li>
-                                <li>Восстановление картриджей</li>
-                                <li>Ремонт принтеров</li>
-                            </ul>
+                            <p>Please visit <a rel="nofollow" href="https://www.toocss.com">Too CSS</a> blog to get latest collections of great HTML Bootstrap templates for your websites. Quisque id turpis tristique, venenatis erat sit amet, venenatis turpis. Ut tellus ipsum, posuere bibendum consectetur.</p>
                             <div class="text-center">
                                 <a href="#" 
-                                	class="templatemo-btn-read-more btn btn-orange">Подробнее</a>
+                                	class="templatemo-btn-read-more btn btn-orange">READ MORE</a>
                             </div>
                             <br class="clearfix"/>
                         </div>
@@ -276,7 +192,7 @@ https://templatemo.com/tm-395-urbanic
                 <div class="row">
                     <div class="templatemo-line-header">
                         <div class="text-center">
-                            <hr class="team_hr team_hr_left"/><span>НАША КОМАНДА</span>
+                            <hr class="team_hr team_hr_left"/><span>MEET OUR TEAM</span>
                             <hr class="team_hr team_hr_right" />
                         </div>
                     </div>
@@ -286,7 +202,7 @@ https://templatemo.com/tm-395-urbanic
                         <li class="col-lg-3 col-md-3 col-sm-6 ">
                             <div class="text-center">
                                 <div class="member-thumb">
-                                    <img src="images/mando.png" class="img-responsive" alt="member 1" />
+                                    <img src="images/member1.jpg" class="img-responsive" alt="member 1" />
                                     <div class="thumb-overlay">
                                         <a href="#"><span class="social-icon-fb"></span></a>
                                         <a href="#"><span class="social-icon-twitter"></span></a>
@@ -294,7 +210,7 @@ https://templatemo.com/tm-395-urbanic
                                     </div>
                                 </div>
                                 <div class="team-inner">
-                                    <p class="team-inner-header">MANDALORIAN</p>
+                                    <p class="team-inner-header">TRACY</p>
                                     <p class="team-inner-subtext">Designer</p>
                                 </div>
                             </div>
@@ -302,7 +218,7 @@ https://templatemo.com/tm-395-urbanic
                         <li class="col-lg-3 col-md-3 col-sm-6 ">
                             <div class="text-center">
                                 <div class="member-thumb">
-                                    <img src="images/me.png" class="img-responsive" alt="member 2" />
+                                    <img src="images/member2.jpg" class="img-responsive" alt="member 2" />
                                     <div class="thumb-overlay">
                                         <a href="#"><span class="social-icon-fb"></span></a>
                                         <a href="#"><span class="social-icon-twitter"></span></a>
@@ -310,7 +226,7 @@ https://templatemo.com/tm-395-urbanic
                                     </div>
                                 </div>
                                 <div class="team-inner">
-                                    <p class="team-inner-header">IVAN</p>
+                                    <p class="team-inner-header">MARY</p>
                                     <p class="team-inner-subtext">Developer</p>
                                 </div>
                             </div>
@@ -318,7 +234,7 @@ https://templatemo.com/tm-395-urbanic
                         <li class="col-lg-3 col-md-3 col-sm-6 ">
                             <div class="text-center">
                                 <div class="member-thumb">
-                                    <img src="images/lex.png" class="img-responsive" alt="member 3" />
+                                    <img src="images/member3.jpg" class="img-responsive" alt="member 3" />
                                     <div class="thumb-overlay">
                                         <a href="#"><span class="social-icon-fb"></span></a>
                                         <a href="#"><span class="social-icon-twitter"></span></a>
@@ -326,7 +242,7 @@ https://templatemo.com/tm-395-urbanic
                                     </div>
                                 </div>
                                 <div class="team-inner">
-                                    <p class="team-inner-header">ALEXEY</p>
+                                    <p class="team-inner-header">JULIA</p>
                                     <p class="team-inner-subtext">Director</p>
                                 </div>
                             </div>
@@ -334,7 +250,7 @@ https://templatemo.com/tm-395-urbanic
                         <li class="col-lg-3 col-md-3 col-sm-6 ">
                             <div class="text-center">
                                 <div class="member-thumb">
-                                    <img src="images/obi.png" class="img-responsive" alt="member 4" />
+                                    <img src="images/member4.jpg" class="img-responsive" alt="member 4" />
                                     <div class="thumb-overlay">
                                         <a href="#"><span class="social-icon-fb"></span></a>
                                         <a href="#"><span class="social-icon-twitter"></span></a>
@@ -342,7 +258,7 @@ https://templatemo.com/tm-395-urbanic
                                     </div>
                                 </div>
                                 <div class="team-inner">
-                                    <p class="team-inner-header">OBI WAN</p>
+                                    <p class="team-inner-header">LINDA</p>
                                     <p class="team-inner-subtext">Manager</p>
                                 </div>
                             </div>
@@ -356,7 +272,7 @@ https://templatemo.com/tm-395-urbanic
                 <div class="row">
                     <div class="templatemo-line-header" >
                         <div class="text-center">
-                            <hr class="team_hr team_hr_left hr_gray"/><span class="txt_darkgrey">ПОРТФОЛИО</span>
+                            <hr class="team_hr team_hr_left hr_gray"/><span class="txt_darkgrey">OUR PORTFOLIO</span>
                             <hr class="team_hr team_hr_right hr_gray" />
                         </div>
                     </div>
@@ -513,7 +429,7 @@ https://templatemo.com/tm-395-urbanic
                 <div class="row">
                     <div class="templatemo-line-header" style="margin-top: 0px;" >
                         <div class="text-center">
-                            <hr class="team_hr team_hr_left hr_gray"/><span class="span_blog txt_darkgrey">БЛОГ</span>
+                            <hr class="team_hr team_hr_left hr_gray"/><span class="span_blog txt_darkgrey">BLOG POSTS</span>
                             <hr class="team_hr team_hr_right hr_gray" />
                         </div>
                     </div>
@@ -534,7 +450,7 @@ https://templatemo.com/tm-395-urbanic
                                     <span>Posted by : <a class="link_orange" href="#"><span class="txt_orange">Tracy</span></a></span>
                                 </div>
                                 <div class="pull-right">
-                                    <a class="btn btn-orange" href="#" role="button">31 February 2084</a>
+                                    <a class="btn btn-orange" href="#" role="button">21 February 2084</a>
                                 </div>
                                 <div class="clearfix"> </div>
                                 <p class="blog_text">
@@ -555,7 +471,7 @@ https://templatemo.com/tm-395-urbanic
                                     <span>Posted by : <a class="link_orange" href="#"><span class="txt_orange">Mary</span></a></span>
                                 </div>
                                 <div class="pull-right">
-                                    <a class="btn btn-orange" href="#" role="button">31 February 2084</a>
+                                    <a class="btn btn-orange" href="#" role="button">18 February 2084</a>
                                 </div>
                                 <div class="clearfix"> </div>
                                 <p class="blog_text">
@@ -577,7 +493,7 @@ https://templatemo.com/tm-395-urbanic
                                     <span>Posted by : <a class="link_orange" href="#"><span class="txt_orange">Julia</span></a></span>
                                 </div>
                                 <div class="pull-right">
-                                    <a class="btn btn-orange" href="#" role="button">31 February 2084</a>
+                                    <a class="btn btn-orange" href="#" role="button">14 February 2084</a>
                                 </div>
                                 <div class="clearfix"> </div>
                                 <p class="blog_text">
@@ -600,7 +516,7 @@ https://templatemo.com/tm-395-urbanic
                                     <span>Posted by : <a class="link_orange" href="#"><span class="txt_orange">Linda</span></a></span>
                                 </div>
                                 <div class="pull-right">
-                                    <a class="btn btn-orange" href="#" role="button">31 February 2084</a>
+                                    <a class="btn btn-orange" href="#" role="button">11 February 2084</a>
                                 </div>
                                 <div class="clearfix"> </div>
                                 <p class="blog_text">
@@ -619,7 +535,7 @@ https://templatemo.com/tm-395-urbanic
                 <div class="row">
                     <div class="templatemo-line-header head_contact">
                         <div class="text-center">
-                            <hr class="team_hr team_hr_left hr_gray"/><span class="txt_darkgrey">КОНТАКТЫ</span>
+                            <hr class="team_hr team_hr_left hr_gray"/><span class="txt_darkgrey">CONTACT US</span>
                             <hr class="team_hr team_hr_right hr_gray"/>
                         </div>
                     </div>
@@ -627,30 +543,95 @@ https://templatemo.com/tm-395-urbanic
                     <div class="col-md-8">
                         <div class="templatemo-contact-map" id="map-canvas"> </div>  
                         <div class="clearfix"></div>
-                        <i>Вы можете найти нас во дворе <span class="txt_orange">телеграфа</span></i>
+                        <i>You can find us on 80 Dagon Studio, Yankin Street, <span class="txt_orange">Digital Estate</span> in Yangon.</i>
                     </div>
                     <div class="col-md-4 contact_right">
-                        <p>Время работы: Пн-Пт с 8:00 до 17:00, Сб-Вс Выходные</p>
-                        <p><img src="images/location.png" alt="icon 1" />Воронежская обл., г. Борисоглебск, ул. Карла Маркса, 76</p>
-                        <p><img src="images/phone1.png"  alt="icon 2" /><span th:utext="${top_phone}"</span></p>
-                        <p><img src="images/globe.png" alt="icon 3" /><a class="link_orange" href="http://www.megaprintbsk.ru/"><span class="txt_orange">www.megaprintbsk.ru</span></a></p>
+                        <p>Lorem ipsum dolor sit amet, consectetu adipiscing elit pendisse as a molesti.</p>
+                        <p><img src="images/location.png" alt="icon 1" /> 80 Dagon Studio, Yakin Street, Digital Estate</p>
+                        <p><img src="images/phone1.png"  alt="icon 2" /> 090-080-0110</p>
+                        <p><img src="images/globe.png" alt="icon 3" /><a class="link_orange" href="#"><span class="txt_orange">www.company.com</span></a></p>
                         <form class="form-horizontal" action="#">
                             <div class="form-group">
-                                <input type="email" class="form-control" placeholder="Ваше имя..." maxlength="40" />
+                                <input type="email" class="form-control" placeholder="Your Name..." maxlength="40" />
                             </div>
                             <div class="form-group">
-                                <input type="email" class="form-control" placeholder="Ваш Email..." maxlength="40" />
+                                <input type="email" class="form-control" placeholder="Your Email..." maxlength="40" />
                             </div>
                             <div class="form-group">
-                                <textarea  class="form-control" style="height: 130px;" placeholder="Напишите здесь ваше сообщение..."></textarea>
+                                <textarea  class="form-control" style="height: 130px;" placeholder="Write down your message..."></textarea>
                             </div>
-                            <button type="submit" class="btn btn-orange pull-right">ОТПРАВИТЬ</button>
+                            <button type="submit" class="btn btn-orange pull-right">SEND</button>
                         </form>
                         	
                     </div>
                 </div><!-- /.row -->
             </div><!-- /.container -->
         </div><!-- /#templatemo-contact -->
+
+
+        <div class="templatemo-tweets">
+            <div class="container">
+                <div class="row" style="margin-top:20px;">
+                        <div class="col-md-2">
+                        </div>
+                        <div class="col-md-1">
+                                <img src="images/quote.png" alt="icon" />
+                        </div>
+                        <div class="col-md-7 tweet_txt" >
+                                <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit suspendiise as a molesti neque vestibulum,  persiutsor de andues mare fricilus ipsum dolor sit amet cons forukus.</span>
+                                <br/>
+                                <span class="twitter_user">Moe Moe, Yangon</span>
+                        </div>
+                        <div class="col-md-2">
+                        </div>
+                 </div><!-- /.row -->
+            </div><!-- /.container -->
+        </div>
+
+        <div class="templatemo-partners" >
+            <div class="container">
+                <div class="row">
+
+
+                    <div class="templatemo-line-header" >
+                        <div class="text-center">
+                            <hr class="team_hr team_hr_left hr_gray"/><span class="txt_darkgrey">OUR PARTNERS</span>
+                            <hr class="team_hr team_hr_right hr_gray" />
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+
+
+                    <div class="text-center">
+
+                        <div style="margin-top:60px;">
+                            <ul class="list-inline">
+                                <li class="col-sm-2 col-md-2 templatemo-partner-item">
+                                    <a href="#"><img src="images/partner1.jpg" class="img-responsive" alt="partner 1" /></a>
+                                </li>
+                                <li class="col-sm-2 col-md-2 templatemo-partner-item">
+                                    <a href="#"><img src="images/partner2.jpg" class="img-responsive" alt="partner 2" /></a>
+                                </li>
+                                <li class="col-sm-2 col-md-2 templatemo-partner-item">
+                                    <a href="#"><img src="images/partner3.jpg" class="img-responsive" alt="partner 3" /></a>
+                                </li>
+                                <li class="col-sm-2 col-md-2 templatemo-partner-item">
+                                    <a href="#"><img src="images/partner4.jpg" class="img-responsive" alt="partner 4" /></a>
+                                </li>
+                                <li class="col-sm-2 col-md-2 templatemo-partner-item">
+                                    <a href="#"><img src="images/partner5.jpg" class="img-responsive" alt="partner 5" /></a>
+                                </li>
+                                <li class="col-sm-2 col-md-2 templatemo-partner-item">
+                                    <a href="#"><img src="images/partner6.jpg" class="img-responsive" alt="partner 6" /></a>
+                                </li>
+                            </ul>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <div class="templatemo-footer" >
             <div class="container">
@@ -686,13 +667,13 @@ https://templatemo.com/tm-395-urbanic
                                 </li>
                             </ul>
                             <div class="height30"></div>
-                            <a class="btn btn-lg btn-orange" href="#" role="button" id="btn-back-to-top">Наверх</a>
+                            <a class="btn btn-lg btn-orange" href="#" role="button" id="btn-back-to-top">Back To Top</a>
                             <div class="height30"></div>
                         </div>
                         <div class="footer_bottom_content">
-                   			<span id="footer-line">Copyright © 2021 <a href="#">МегаПринт</a>
+                   			<span id="footer-line">Copyright © 2019 <a href="#">Your Company Name</a>
                             
-                            - Made with love -</span>
+                            - Designed by Template Mo</span>
                         </div>
                         
                     </div>
@@ -704,7 +685,6 @@ https://templatemo.com/tm-395-urbanic
         <script src="js/stickUp.min.js"  type="text/javascript"></script>
         <script src="js/colorbox/jquery.colorbox-min.js"  type="text/javascript"></script>
         <script src="js/templatemo_script.js"  type="text/javascript"></script>
-        <script type="text/javascript">initYMap();</script>
 		<!-- templatemo 395 urbanic -->
     </body>
 </html>
