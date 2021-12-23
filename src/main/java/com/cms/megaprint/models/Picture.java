@@ -10,10 +10,9 @@ import javax.persistence.*;
 public class Picture {
 
     @Id
-    @Column(name = "id")
     @SequenceGenerator(name = "picturesHS", sequenceName = "pictures_id", allocationSize = 1)
     @GeneratedValue( strategy = GenerationType.SEQUENCE, generator = "picturesHS")
-    private int id;
+    private long id;
 
     @Column(name = "data")
     @Lob
