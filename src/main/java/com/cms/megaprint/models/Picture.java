@@ -12,7 +12,7 @@ public class Picture {
     @Id
     @SequenceGenerator(name = "picturesHS", sequenceName = "pictures_id", allocationSize = 1)
     @GeneratedValue( strategy = GenerationType.SEQUENCE, generator = "picturesHS")
-    private long id;
+    private Long id;
 
     @Column(name = "data")
     @Lob

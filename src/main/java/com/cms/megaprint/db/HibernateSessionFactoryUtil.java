@@ -1,6 +1,8 @@
 package com.cms.megaprint.db;
 
 import com.cms.megaprint.configuration.VarConfig;
+import com.cms.megaprint.models.CommonValue;
+import com.cms.megaprint.models.Picture;
 import lombok.Getter;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
@@ -35,7 +37,9 @@ public class HibernateSessionFactoryUtil {
 
             Configuration configuration = new Configuration();
             configuration.setProperties(properties);
-            //configuration.addAnnotatedClass(Picture.class);
+
+            configuration.addAnnotatedClass(Picture.class);
+            configuration.addAnnotatedClass(CommonValue.class);
 
             StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties());
             sessionFactory = configuration.buildSessionFactory(builder.build());
