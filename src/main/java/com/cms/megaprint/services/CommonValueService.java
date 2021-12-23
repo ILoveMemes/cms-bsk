@@ -5,7 +5,7 @@ import com.cms.megaprint.models.CommonValue;
 
 import java.util.Optional;
 
-public interface CommonValueService extends CrudService<Long, CommonValue> {
+public interface CommonValueService extends CrudService<CommonValue, Long> {
 
     Optional<CommonValue> findByName(String name);
 
