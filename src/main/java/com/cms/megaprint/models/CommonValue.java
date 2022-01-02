@@ -14,10 +14,13 @@ public class CommonValue {
     @GeneratedValue( strategy = GenerationType.SEQUENCE, generator = "cValuesHS")
     private Long id;
 
-    @Column(name = "name")
-    private String name;
+    @Column(name = "key")
+    private String key;
 
     @Column(name = "value")
     private String value;
+
+    @Column(name = "description")
+    private String description;
 
 }
