@@ -16,9 +16,9 @@ public class CommonValueServiceImpl extends DefaultServiceImpl<CommonValue, Long
     }
 
     @Override
-    public Optional<CommonValue> findByName(String name) {
+    public Optional<CommonValue> findByKey(String name) {
         for(CommonValue commonValue: repo.findAll()) {
-            if (commonValue.getName().equals(name)) {
+            if (commonValue.getKey().equals(name)) {
                 return Optional.of(commonValue);
             }
         }

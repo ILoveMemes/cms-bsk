@@ -4,6 +4,7 @@ import com.cms.megaprint.repos.CrudRepo;
 import com.cms.megaprint.services.CrudService;
 import com.google.common.collect.Sets;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
@@ -16,12 +17,8 @@ public class DefaultServiceImpl<T, ID> implements CrudService<T, ID> {
     }
 
     @Override
-    public Set<T> findAll() {
-        Set<T> set = repo.findAll();
-        if (set != null) {
-            return Sets.newHashSet(repo.findAll());
-        }
-        return null;
+    public List<T> findAll() {
+        return repo.findAll();
     }
 
     @Override

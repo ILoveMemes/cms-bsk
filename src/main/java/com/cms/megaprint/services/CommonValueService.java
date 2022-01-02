@@ -7,6 +7,6 @@ import java.util.Optional;
 
 public interface CommonValueService extends CrudService<CommonValue, Long> {
 
-    Optional<CommonValue> findByName(String name);
+    Optional<CommonValue> findByKey(String name);
 
 }
