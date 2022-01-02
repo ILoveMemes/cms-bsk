@@ -1,4 +1,4 @@
-package com.cms.megaprint.reposimpl;
+package com.cms.megaprint.common;
 
 import com.cms.megaprint.db.HibernateSessionFactoryUtil;
 import com.cms.megaprint.repos.CrudRepo;
@@ -17,7 +17,6 @@ public class CrudRepoHibernateImpl<T, ID> implements CrudRepo<T, ID> {
 
     @Override
     public Set<T> findAll() {
-        System.out.println("CrudRepoHibernate->getAll");
         return null;
     }
 
@@ -27,7 +26,7 @@ public class CrudRepoHibernateImpl<T, ID> implements CrudRepo<T, ID> {
     }
 
     @Override
-    public T update(T entity) {
+    public T update(T object) {
         return null;
     }
 
