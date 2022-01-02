@@ -44,6 +44,11 @@ public class CommonValueServiceImpl implements CommonValueService {
     }
 
     @Override
+    public CommonValue update(CommonValue entity) {
+        return commonValueRepository.update(entity);
+    }
+
+    @Override
     public void delete(CommonValue object) {
         commonValueRepository.delete(object);
     }

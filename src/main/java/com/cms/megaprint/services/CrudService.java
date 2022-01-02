@@ -1,18 +1,6 @@
 package com.cms.megaprint.services;
 
-import java.util.Optional;
-import java.util.Set;
+import com.cms.megaprint.common.CrudInterface;
 
-public interface CrudService<T, ID> {
-
-    Set<T> findAll();
-
-    Optional<T> findById(ID id);
-
-    T save(T object);
-
-    void delete(T object);
-
-    void deleteById(ID id);
-
+public interface CrudService<T, ID> extends CrudInterface<T, ID> {
 }
