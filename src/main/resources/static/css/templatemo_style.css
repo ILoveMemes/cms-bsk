@@ -734,3 +734,7 @@ ul.templatemo-project-gallery  li  a img:hover {
 		width: 11%;
 	}
 }
+
+.editable:hover {
+    background: #aaa;
+}
