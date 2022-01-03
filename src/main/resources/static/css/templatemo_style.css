@@ -43,7 +43,7 @@ h1, h2, h3, h4, h5, h6, span, p { font-family: 'Open Sans', Arial, Helvetice Neu
 .templatemo-top-menu {
     min-height:110px;
     background-color:#ffffff;
-    z-index: 5000;
+    z-index: 1000;
     width:100%;
 }
 
@@ -737,4 +737,10 @@ ul.templatemo-project-gallery  li  a img:hover {
 
 .editable:hover {
     background: #aaa;
+}
+
+.modal-text-edit {
+    width: 100%;
+    resize: none;
+    max-height: 400px;
 }
