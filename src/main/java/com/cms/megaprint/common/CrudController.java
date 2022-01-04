@@ -8,7 +8,7 @@ import java.util.Optional;
 
 public class CrudController<T, ID> {
 
-    private final CrudService<T, ID> service;
+    protected final CrudService<T, ID> service;
 
     public CrudController(CrudService<T, ID> service) {
         this.service = service;
