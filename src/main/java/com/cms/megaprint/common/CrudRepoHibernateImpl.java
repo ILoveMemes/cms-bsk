@@ -64,21 +64,23 @@ public class CrudRepoHibernateImpl<T, ID> implements CrudRepo<T, ID> {
     }
 
     @Override
-    public void deleteById(ID id) {
+    public boolean deleteById(ID id) {
         Session session = hibernateSessionFactoryUtil.getSessionFactory().openSession();
         Transaction tx1 = session.beginTransaction();
         T data = session.load(dataType, (Serializable) id);
         session.delete(data);
         tx1.commit();
         session.close();
+        return true;
     }
 
     @Override
-    public void delete(T object) {
+    public boolean delete(T object) {
         Session session = hibernateSessionFactoryUtil.getSessionFactory().openSession();
         Transaction tx1 = session.beginTransaction();
         session.delete(object);
         tx1.commit();
         session.close();
+        return true;
     }
 }

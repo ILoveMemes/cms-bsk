@@ -9,7 +9,7 @@ public interface CrudInterface<T, ID> {
     Optional<T> findById(ID id);
     T save(T object);
     T update(T object);
-    void delete(T object);
-    void deleteById(ID id);
+    boolean delete(T object);
+    boolean deleteById(ID id);
 
 }

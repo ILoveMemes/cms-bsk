@@ -37,12 +37,12 @@ public class DefaultServiceImpl<T, ID> implements CrudService<T, ID> {
     }
 
     @Override
-    public void delete(T object) {
-        repo.delete(object);
+    public boolean delete(T object) {
+        return repo.delete(object);
     }
 
     @Override
-    public void deleteById(ID id) {
-        repo.deleteById(id);
+    public boolean deleteById(ID id) {
+        return repo.deleteById(id);
     }
 }
