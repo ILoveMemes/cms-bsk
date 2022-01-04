@@ -1,40 +1,29 @@
 package com.cms.megaprint.controllers;
 
+import com.cms.megaprint.common.CrudController;
 import com.cms.megaprint.models.CommonValue;
 import com.cms.megaprint.services.CommonValueService;
+import com.cms.megaprint.services.CrudService;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
 @Controller
 @RequestMapping("/val")
-public class CommonValueController {
+public class CommonValueController extends CrudController<CommonValue, Long> {
 
-    private final CommonValueService commonValueService;
-
-    public CommonValueController(CommonValueService commonValueService) {
-        this.commonValueService = commonValueService;
+    public CommonValueController(CommonValueService service) {
+        super(service);
     }
 
-    @GetMapping("/get")
-    public @ResponseBody CommonValue getById(
-            @RequestParam(name = "id", defaultValue = "-1", required = false) Long id,
-            @RequestParam(name = "key", defaultValue = "", required = false) String key) {
-        Optional<CommonValue> val = Optional.empty();
-        if (id >= 0) {
-            val = commonValueService.findById(id);
-        } else {
-            if (!key.equals("")) {
-                val = commonValueService.findByKey(key);
-            }
-        }
+    @GetMapping("/findByKey/{key}")
+    public @ResponseBody CommonValue findByKey(@PathVariable String key) {
+        Optional<CommonValue> val = ((CommonValueService) service).findByKey(key);
         if (val.isPresent()) {
             return val.get();
         }
         return null;
     }
+
 }
