@@ -28,4 +28,9 @@ public class TestController {
         return "test";
     }
 
+    @RequestMapping("/test_index")
+    public String testIndex(Model model) {
+        return "testIndex";
+    }
+
 }
