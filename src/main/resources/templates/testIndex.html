@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
     <head>
-        <title>Index</title>
+        <title th:text="${site_caption}">Index</title>
         <meta name="keywords" content="" />
 		<meta name="description" content="" />
 <!--
@@ -38,11 +38,11 @@ https://templatemo.com/tm-395-urbanic
                 <div class="subheader">
                     <div id="phone" class="pull-left">
                             <img src="images/phone.png" alt="phone"/>
-                        <span>8 (473 54) 6-58-88</span>
+                        <span th:utext="${top_phone}"></span>
                     </div>
                     <div id="email" class="pull-right">
                             <img src="images/email.png" alt="email"/>
-                        <span>megaprintbsk@mail.ru</span>
+                        <span th:utext="${top_email}"></span>
                     </div>
                 </div>
             </div>
@@ -136,60 +136,21 @@ https://templatemo.com/tm-395-urbanic
                 <div class="col-md-12 templatemo-slogan text-center">
                     <!--span class="txt_darkgrey" th:text="${center_welcome}">Welcome to </span>
                     <span class="txt_orange" th:text="' '+${center_company_name}">Company</span-->
-                    <p class="txt_slogan">Мы благодарим Вас за то, что Вы и обратились именно в наш сервисный центр,
-                         и мы гарантируем, что Вы не останетесь разочарованны нашим сервисом.</p>
-                    <div class="col-md-4 templatemo-service-item">
-                        <p>
-                        Ведь в нашем сервисном центре оказываются максимально качественные и оперативные услуги.
-                        <br>
-                        Благодаря тому, что в нашем сервисном центре используется исключительно качественное
-                        оборудование и лицензионное программное обеспечение, Вы всегда можете быть уверенны в том,
-                        что проведенный ремонт ноутбуков и компьютеров оправдает все Ваши ожидания, ведь в нашем
-                        сервисном центре Вам будут предложены максимально качественные услуги,так что Вы не останетесь
-                        разочарованны.
-                        <br>
-                        Мы являемся партнерами компании ОАО "ИнфоТеКС Интернет Траст" которая предоставляет полный
-                        спектр услуг для Юридических лиц и Индивидуальных предпринимателей в области сдачи электронной
-                        отчетности в контролирующие органы. Поэтому мы имеем возможность предоставлять услуги этой
-                        фирмы в г.Борисоглебск
-                        </p>
+                    <p class="txt_slogan" th:utext="${center_text}"></p>
+                    <div class="col-md-6 templatemo-service-item">
+                        <p th:utext="${two_col_1}"></p>
+                    </div>
+                    <div class="col-md-6 templatemo-service-item">
+                        <p th:utext="${two_col_2}"></p>
                     </div>
                     <div class="col-md-4 templatemo-service-item">
-                        <p>
-                        Мы являемся партнерами лидера российского рынка интернет-сервисов безопасности «Доктор Веб»
-                        <br>
-                        Также мы являемся партнерами компании Entensys. Entensys(Общество с ограниченной
-                        ответственностью «еСЛ Девелопмент») является ведущим российским разработчиком программных
-                        продуктов и решений в области информационной безопасности. Технологии Entensys позволяют
-                        обеспечивать защиту организаций и конечных пользователей от интернет-угроз, решают проблемы
-                        фильтрации интернет и почтового трафика, а также осуществляют множество других полезных
-                        функций. Продукты Entensys используются как в России, так и за рубежом.От флагманского решения
-                        UserGate Proxy & Firewall компания пришла к целой продуктовой линейке:
-                        </p>
-                        <ul>
-                            <li>UserGate Proxy & Firewall</li>
-                            <li>UserGate Mail Server</li>
-                            <li>GateWall DNS Filter</li>
-                            <li>GateWall Mail Security</li>
-                            <li>KinderGate Родительский Контроль</li>
-                        </ul>
+                        <p th:utext="${three_col_1}"></p>
                     </div>
                     <div class="col-md-4 templatemo-service-item">
-                        <p>
-                        Также Entensys выпустила бесплатный продукт UserGate Instant Messengers Control
-                        <br>
-                        Более подробную информацию вы можете узнать на сайте компании
-                        <a href="https://www.usergate.com/ru">Entensys</a>
-                        <br>
-                        В современном мире дорога каждая копейка. Именно поэтому в нашем сервисном центре услуги не
-                        только качественные, но и максимально доступные. За дополнительной информацией обращайтесь по
-                        телефонам, указанным на нашем сайте. Мы ждем Вас в нашем сервисном центре.
-                        <br>
-                        Мы являемся партнерами компании «1С»
-                        <br>
-                        «1С-ГЭНДАЛЬФ» является крупнейшим дистрибьютором фирмы «1С» в России, а также партнером ведущих
-                        мировых производителей программного обеспечения.
-                        </p>
+                        <p th:utext="${three_col_2}"></p>
+                    </div>
+                    <div class="col-md-4 templatemo-service-item">
+                        <p th:utext="${three_col_3}"></p>
                     </div>
                 </div>
                 <div class="col-md-12 templatemo-slogan text-center">
@@ -487,33 +448,6 @@ https://templatemo.com/tm-395-urbanic
                     <div class="text-center">
 
                         <div class="footer_container">
-                            <ul class="list-inline">
-                                <li>
-                                    <a href="#">
-                                        <span class="social-icon-fb"></span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <span class="social-icon-rss"></span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <span class="social-icon-twitter"></span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <span class="social-icon-linkedin"></span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <span class="social-icon-dribbble"></span>
-                                    </a>
-                                </li>
-                            </ul>
                             <div class="height30"></div>
                             <a class="btn btn-lg btn-orange" href="#" role="button" id="btn-back-to-top">Наверх</a>
                             <div class="height30"></div>

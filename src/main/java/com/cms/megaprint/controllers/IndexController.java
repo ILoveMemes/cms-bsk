@@ -1,6 +1,8 @@
 package com.cms.megaprint.controllers;
 
 import com.cms.megaprint.configuration.VarConfig;
+import com.cms.megaprint.models.CommonValue;
+import com.cms.megaprint.services.CommonValueService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -9,26 +11,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class IndexController {
 
     private final VarConfig varConfig;
+    private final CommonValueService commonValueService;
 
-    public IndexController(VarConfig varConfig) {
+    public IndexController(VarConfig varConfig, CommonValueService commonValueService) {
         this.varConfig = varConfig;
+        this.commonValueService = commonValueService;
     }
 
     @RequestMapping({"", "/", "index", "index.html"})
     public String index(Model model) {
-        model.addAttribute("site_caption", "Ремонт компьютеро в Борисоглебске");
 
-        model.addAttribute("top_caption", "МегаПринт | Борисоглебск");
-        model.addAttribute("top_phone", "8 (473 54) 6-58-88");
-        model.addAttribute("top_email","megaprintbsk@mail.ru");
+        for (CommonValue cValue: commonValueService.findAll()) {
+            model.addAttribute(cValue.getKey(), cValue.getValue());
+        }
 
-        model.addAttribute("center_welcome", "Добро пожаловать в");
-        model.addAttribute("center_company_name", "МегаПринт");
-        model.addAttribute("center_text", "Мы благодарим Вас за то, что Вы и обратились именно в наш сервисный центр, и мы гарантируем, что Вы не останетесь разочарованны нашим сервисом.");
-        // три колонки в index.html
-
-        model.addAttribute("text", "Hello, World!");
-        return "index";
+        return "testIndex";
     }
 
 }

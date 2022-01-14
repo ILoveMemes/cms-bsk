@@ -10,6 +10,7 @@ function modalApplyHandler(dataId) {
     commonValues.set(dataId, $('#modalTextEdit').val());
     $('#modalWindow').modal('hide');
     updateDoc();
+    // send changes to the server
 }
 
 function pickThElements() {
@@ -39,7 +40,14 @@ function autoGrow(element) {
 }
 
 function updateDoc() {
-    pickThElements().forEach(e => e.element.innerHTML = commonValues.get(e.key));
+    pickThElements().forEach(e => {
+        let val = commonValues.get(e.key);
+        if (val == null) {
+            e.element.innerHTML = '(пусто)';
+        } else {
+            e.element.innerHTML = val;
+        }
+    });
 }
 
 prepareDoc();
