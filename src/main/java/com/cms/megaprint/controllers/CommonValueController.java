@@ -4,10 +4,7 @@ import com.cms.megaprint.common.CrudController;
 import com.cms.megaprint.models.CommonValue;
 import com.cms.megaprint.services.CommonValueService;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 

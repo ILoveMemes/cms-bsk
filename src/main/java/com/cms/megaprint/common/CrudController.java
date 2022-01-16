@@ -29,17 +29,17 @@ public class CrudController<T, ID> {
     }
 
     @PostMapping("/save")
-    public @ResponseBody T save(@ModelAttribute("object") T object) {
+    public @ResponseBody T save(@RequestBody T object) {
         return service.save(object);
     }
 
     @PostMapping("/update")
-    public @ResponseBody T update(@ModelAttribute("object") T object) {
+    public @ResponseBody T update(@RequestBody T object) {
         return service.update(object);
     }
 
     @PostMapping("/delete")
-    public @ResponseBody boolean delete(@ModelAttribute("object") T object) {
+    public @ResponseBody boolean delete(@RequestBody T object) {
         return service.delete(object);
     }
 

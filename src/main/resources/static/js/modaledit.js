@@ -3,14 +3,33 @@ let commonValues = new Map();
 function editableClickHandler(dataId) {
     $('#modalWindow').modal();
     $('#modalTextEdit').val(commonValues.get(dataId));
+    $('#modalApply').unbind();
     $('#modalApply').click(() => modalApplyHandler(dataId));
 }
 
 function modalApplyHandler(dataId) {
     commonValues.set(dataId, $('#modalTextEdit').val());
     $('#modalWindow').modal('hide');
+    updateDataOnServer(dataId);
     updateDoc();
-    // send changes to the server
+}
+
+function updateDataOnServer(dataId) {
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.onreadystatechange = function() {
+        if (xmlHttp.readyState == XMLHttpRequest.DONE && xmlHttp.status == 200) {
+            var resp = JSON.parse(xmlHttp.response);
+            if (resp != null) {
+                var updateRequest = new XMLHttpRequest();
+                resp.value = commonValues.get(dataId);
+                updateRequest.open("POST", '/val/update', true);
+                updateRequest.setRequestHeader('Content-type', 'application/json');
+                updateRequest.send(JSON.stringify(resp));
+            }
+        }
+    }
+    xmlHttp.open("GET", '/val/findByKey/' + dataId, true);
+    xmlHttp.send(null);
 }
 
 function pickThElements() {
