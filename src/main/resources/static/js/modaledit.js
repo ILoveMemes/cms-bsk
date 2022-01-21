@@ -60,12 +60,17 @@ function autoGrow(element) {
 
 function updateDoc() {
     pickThElements().forEach(e => {
-        let val = commonValues.get(e.key);
-        if (val == null) {
-            e.element.innerHTML = '(пусто)';
-        } else {
-            e.element.innerHTML = val;
-        }
+        var request = new XMLHttpRequest();
+        request.open("POST", '/decorate', true);
+        request.setRequestHeader('Content-type', 'application/json');
+        request.send(commonValues.get(e.key));
+        request.onreadystatechange = function() {
+            if (request.response == null) {
+                e.element.innerHTML = '(пусто)';
+            } else {
+                e.element.innerHTML = request.response;
+            }
+        };
     });
 }
 
