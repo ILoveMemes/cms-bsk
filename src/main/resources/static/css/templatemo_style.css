@@ -91,6 +91,12 @@ h1, h2, h3, h4, h5, h6, span, p { font-family: 'Open Sans', Arial, Helvetice Neu
         font-size: 21px;
     }
 
+    #templatemo-carousel .carousel-caption div {
+            margin-bottom: 20px;
+            line-height: 1.4;
+            font-size: 21px;
+        }
+
     #templatemo-carousel .carousel-caption {
         /*padding-bottom: 140px;*/
         right: 20%;
@@ -148,6 +154,14 @@ h1, h2, h3, h4, h5, h6, span, p { font-family: 'Open Sans', Arial, Helvetice Neu
 .templatemo-service-item p {
     font-weight: lighter; 
     text-align: justify; 
+    margin-top: 25px;
+    font-size: 14px;
+    color: #929292;
+}
+
+.templatemo-service-item div {
+    font-weight: lighter;
+    text-align: justify;
     margin-top: 25px;
     font-size: 14px;
     color: #929292;
