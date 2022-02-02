@@ -15,6 +15,7 @@ public class VarConfig {
     private final String dbUrl;
     private final String dbUser;
     private final String dbPass;
-
+    private final int port;
+    private final String address;
 
 }
