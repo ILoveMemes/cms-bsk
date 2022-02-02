@@ -4,6 +4,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 import java.util.function.BinaryOperator;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.stream.Stream;
 import java.lang.String;
 
@@ -42,6 +44,31 @@ public class TextDecoratorService {
 
     public String decorate(String text) {
         Optional<String> res;
+        // link
+        String backup = "";
+        int pos = 0;
+        Pattern pattern = Pattern.compile("!\\[(.*?)\\]\\((.*?)\\)");
+        Matcher matcher = pattern.matcher(text);
+        while (matcher.find()) {
+            String linkText = text.substring(matcher.start(), matcher.end());
+            Pattern patternBrackets = Pattern.compile("\\[(.*?)\\]");
+            Matcher matcherBrackets = patternBrackets.matcher(linkText);
+            String linkUrl = "";
+            if (matcherBrackets.find()) {
+                linkUrl = linkText.substring(matcherBrackets.start() + 1, matcherBrackets.end() - 1);
+            }
+            Pattern patternRBrackets = Pattern.compile("\\((.*?)\\)");
+            Matcher matcherRBrackets = patternBrackets.matcher(linkText);
+            String linkCaption = "";
+            if (matcherRBrackets.find()) {
+                linkCaption = linkText.substring(matcherRBrackets.start() + 1, matcherRBrackets.end() - 1);
+            }
+            backup += text.substring(pos, matcher.start());
+            backup += "<a href='" + linkUrl + "'>" + linkCaption + "</a>";
+            pos = matcher.end();
+        }
+        backup += text.substring(pos, text.length());
+        text = backup;
         // list
         res = Stream.of(text.split("\n")).reduce(new BinaryOperator<String>() {
             private boolean inList = false;
@@ -83,7 +110,7 @@ public class TextDecoratorService {
             text = res.get();
         }
         // split by newline
-        res = Stream.of(text.split("\n")).reduce((s, s2) -> s += "<br>" + s2);
+        res = Stream.of(text.split("\n")).reduce((s, s2) -> s + "<br>" + s2);
         if (res.isPresent()) {
             text = res.get();
         }
