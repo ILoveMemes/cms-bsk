@@ -5,6 +5,7 @@ import com.cms.megaprint.models.Picture;
 import com.cms.megaprint.services.PictureService;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -12,6 +13,8 @@ import javax.activation.MimetypesFileTypeMap;
 import java.io.IOException;
 import java.util.Optional;
 
+@Controller
+@RequestMapping("/pic")
 public class PictureController extends CrudController<Picture, Long> {
 
     public PictureController(PictureService service) {
