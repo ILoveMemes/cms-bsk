@@ -11,7 +11,9 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.activation.MimetypesFileTypeMap;
 import java.io.IOException;
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping("/pic")
@@ -48,6 +50,11 @@ public class PictureController extends CrudController<Picture, Long> {
         }
         service.save(picture);
         return result;
+    }
+
+    @GetMapping("/idList")
+    public @ResponseBody List<Long> getIdList() {
+        return service.findAll().stream().map(Picture::getId).collect(Collectors.toList());
     }
 
 }
