@@ -759,6 +759,21 @@ ul.templatemo-project-gallery  li  a img:hover {
     max-height: 400px;
 }
 
+.modal-list-container {
+    max-height: 400px;
+    overflow: auto;
+}
+
+.modal-list-item {
+    max-height: 100px;
+    max-width: 100px;
+}
+
+.modal-list-picture {
+    max-height: 70px;
+    max-width: 70px;
+}
+
 .label-orange {
         background-color: #ff7600;
         color: #ffffff;

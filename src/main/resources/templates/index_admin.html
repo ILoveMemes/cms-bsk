@@ -38,7 +38,7 @@
                 </div>
                 <div>
                     Иконка сайта:
-                    <img src="images/leaf.png" onclick="showPicUploadDialog();"/>
+                    <img src="images/leaf.png" onclick="showPicPickDialog();"/>
                 </div>
                 <div class="subheader">
                     <div id="phone" class="pull-left">
@@ -531,9 +531,30 @@
                 </div>
             </div>
         </div>
+        <!-- Modal picture pick dialog -->
+        <div class="modal fade" id="modalPicPickDialog" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalPicPickDialogLabel">Выберите картинку</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="modal-list-container" id="modalPicPickList"></div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
+                        <button type="button" class="btn btn-primary" id="modalPicPickDialogApply">Выбрать</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <script th:inline="javascript">
             picDialogInit();
+            picPickDialogRefresh();
         </script>
 
     </body>

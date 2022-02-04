@@ -96,3 +96,28 @@ function doUpload() {
 
     $('#modalPicUploadDialog').modal('hide');
 }
+
+function  showPicPickDialog() {
+    $('#modalPicPickDialog').modal();
+}
+
+function picPickDialogRefresh() {
+    var request = new XMLHttpRequest();
+    request.open("GET", '/pic/idList', true);
+    request.send(null);
+    request.onreadystatechange = function() {
+        if (request.readyState == XMLHttpRequest.DONE && request.status == 200 && request.response != null) {
+            let list = document.getElementById('modalPicPickList');
+            let data = JSON.parse(request.response);
+            data.forEach(i => {
+                let div = document.createElement('div');
+                div.classList.add('modal-list-item');
+                list.appendChild(div);
+                let img = document.createElement('img');
+                img.src = '/pic/' + i;
+                img.classList.add('modal-list-picture');
+                div.appendChild(img);
+            });
+        }
+    };
+}
