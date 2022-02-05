@@ -48,7 +48,11 @@ function pickThElements() {
 
 function prepareDoc() {
     pickThElements().forEach(i => {
-        i.element.onclick = () => editableClickHandler(i.key);
+        if (i.element.tagName = 'IMG') {
+            i.element.onclick = () => showPicPickDialog(i.key, i.element);
+        } else {
+            i.element.onclick = () => editableClickHandler(i.key);
+        }
         i.element.classList.add('editable');
     });
 }
@@ -60,17 +64,21 @@ function autoGrow(element) {
 
 function updateDoc() {
     pickThElements().forEach(e => {
-        var request = new XMLHttpRequest();
-        request.open("POST", '/decorate', true);
-        request.setRequestHeader('Content-type', 'application/json');
-        request.send(commonValues.get(e.key));
-        request.onreadystatechange = function() {
-            if (request.response == null) {
-                e.element.innerHTML = '(пусто)';
-            } else {
-                e.element.innerHTML = request.response;
-            }
-        };
+        if (e.element.tagName == 'IMG') {
+            e.element.src = '/p/' + commonValues.get(e.key);
+        } else {
+            var request = new XMLHttpRequest();
+            request.open("POST", '/decorate', true);
+            request.setRequestHeader('Content-type', 'application/json');
+            request.send(commonValues.get(e.key));
+            request.onreadystatechange = function() {
+                if (request.response == null) {
+                    e.element.innerHTML = '(пусто)';
+                } else {
+                    e.element.innerHTML = request.response;
+                }
+            };
+        }
     });
 }
 
@@ -96,7 +104,7 @@ function doUpload() {
     req.onreadystatechange = () => {
         if (req.readyState == XMLHttpRequest.DONE && req.status == 200) {
             $('#modalPicUploadDialog').modal('hide');
-            picPickDialogRefresh();
+            //picPickDialogRefresh();
             showPicPickDialog();
         }
     };
@@ -110,11 +118,12 @@ function dismissUpload() {
 
 //////////////////////////// picture select dialog ////////////////////////////////////
 
-function  showPicPickDialog() {
+function  showPicPickDialog(dataId, element) {
+    picPickDialogRefresh(dataId, element);
     $('#modalPicPickDialog').modal();
 }
 
-function picPickDialogRefresh() {
+function picPickDialogRefresh(dataId, element) {
     var selectedPicture = {id: -1, element: null};
     $('#modalPickDeleteSelected').attr('disabled', true);
     var list = document.getElementById('modalPicPickList');
@@ -144,7 +153,10 @@ function picPickDialogRefresh() {
                     $('#modalPicPickDialogApply').click(() => {
                         ////// apply selection
                         $('#modalPicPickDialog').modal('hide');
-                        console.log('now selected: ' + i);
+                        //console.log('now selected: ' + i);
+                        commonValues.set(dataId, i);
+                        element.src = '/p/' + i;
+                        updateDataOnServer(dataId);
                     });
                     $('#modalPickDeleteSelected').attr('disabled', false);
                     $('#modalPickDeleteSelected').click(() => {
