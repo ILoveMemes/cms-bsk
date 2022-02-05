@@ -525,7 +525,7 @@
                         <input type="file" name="image" accept="image/png, image/jpeg" id="modalPicUploadInput" />
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
+                        <button type="button" class="btn btn-secondary" onclick="dismissUpload();">Отмена</button>
                         <button type="button" class="btn btn-primary" id="modalPicUploadDialogApply">Загрузить</button>
                     </div>
                 </div>
@@ -545,6 +545,8 @@
                         <div class="modal-list-container" id="modalPicPickList"></div>
                     </div>
                     <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" onclick="doLoadNewPicture();">Загрузить</button>
+                        <button type="button" class="btn btn-secondary" id="modalPickDeleteSelected" disabled="true">Удалить</button>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
                         <button type="button" class="btn btn-primary" id="modalPicPickDialogApply">Выбрать</button>
                     </div>
