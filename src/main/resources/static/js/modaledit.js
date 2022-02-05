@@ -129,7 +129,7 @@ function picPickDialogRefresh() {
                 div.classList.add('modal-list-item');
                 list.appendChild(div);
                 let img = document.createElement('img');
-                img.src = '/pic/' + i;
+                img.src = '/p/' + i;
                 img.classList.add('modal-list-picture');
                 div.appendChild(img);
                 div.onclick = () => {

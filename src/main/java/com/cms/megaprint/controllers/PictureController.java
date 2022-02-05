@@ -23,20 +23,6 @@ public class PictureController extends CrudController<Picture, Long> {
         super(service);
     }
 
-    @GetMapping("/{id}")
-    public @ResponseBody ResponseEntity<byte[]> getPicture(@PathVariable Long id) {
-        Optional<Picture> pic = service.findById(id);
-        if (pic.isPresent()) {
-            return ResponseEntity.ok()
-                    .contentLength(pic.get().getData().length)
-                    .contentType(MediaType.parseMediaType(new MimetypesFileTypeMap().getContentType(pic.get().getName())))
-                    .body(pic.get().getData());
-        }
-
-        return ResponseEntity.badRequest().body(null);
-
-    }
-
     @PostMapping("/upload")
     public @ResponseBody boolean uploadPicture(@RequestParam("image") MultipartFile multipartFile) {
         Picture picture = new Picture();
