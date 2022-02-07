@@ -3,6 +3,7 @@ package com.cms.megaprint.controllers;
 import com.cms.megaprint.configuration.VarConfig;
 import com.cms.megaprint.models.CommonValue;
 import com.cms.megaprint.services.CommonValueService;
+import com.cms.megaprint.services.ServiceCategoryService;
 import com.cms.megaprint.services.TextDecoratorService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,11 +15,13 @@ public class IndexController {
     private final VarConfig varConfig;
     private final CommonValueService commonValueService;
     private final TextDecoratorService textDecoratorService;
+    private final ServiceCategoryService serviceCategoryService;
 
-    public IndexController(VarConfig varConfig, CommonValueService commonValueService, TextDecoratorService textDecoratorService) {
+    public IndexController(VarConfig varConfig, CommonValueService commonValueService, TextDecoratorService textDecoratorService, ServiceCategoryService serviceCategoryService) {
         this.varConfig = varConfig;
         this.commonValueService = commonValueService;
         this.textDecoratorService = textDecoratorService;
+        this.serviceCategoryService = serviceCategoryService;
     }
 
     @RequestMapping({"", "/", "index", "index.html"})
@@ -27,6 +30,8 @@ public class IndexController {
         for (CommonValue cValue: commonValueService.findAll()) {
             model.addAttribute(cValue.getKey(), textDecoratorService.decorate(cValue.getValue()));
         }
+
+        model.addAttribute("serviceCategories", serviceCategoryService.findAll());
 
         return "testIndex";
     }

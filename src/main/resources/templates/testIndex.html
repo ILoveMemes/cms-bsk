@@ -181,69 +181,23 @@
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="templatemo-service-item">
-                            <div>
-                                <img src="images/leaf.png" alt="icon" />
-                                <span class="templatemo-service-item-header">КОМПЬЮТЕРЫ</span>
-                            </div>
-                            <ul>
-                                <li>Продажа компьютеров</li>
-                                <li>Ремонт компьютеров, планшетов, мониторов</li>
-                                <li>Диагностика компьютеров</li>
-                                <li>Апгрейд (модернизация) компьютера</li>
-                            </ul>
 
-                            <div class="text-center">
-                            	<a href="/service"
-                                	class="templatemo-btn-read-more btn btn-orange">Подробнее</a>
-                            </div>
-                            <br class="clearfix"/>
+                <div th:each="serviceCategory: ${serviceCategories}" class="col-md-6">
+                    <div class="templatemo-service-item">
+                        <div>
+                            <img th:src="@{/p/{id}(id = ${serviceCategory.pictureId})}" alt="icon" with="64" height="64"/>
+                            <span th:text="${serviceCategory.title}" class="templatemo-service-item-header"></span>
                         </div>
-                        <div class="clearfix"></div>
-                    </div>
-                    
-                    <div class="col-md-4">
-                        <div class="templatemo-service-item">
-                            <div>
-                                <img src="images/mobile.png" alt="icon"/>
-                                <span class="templatemo-service-item-header">ПРОГРАММЫ</span>
-                            </div>
-                            <ul>
-                                <li>Установка и настройка операционной системы</li>
-                                <li>Установка и настройка драйверов и программного обеспечения</li>
-                                <li>Удаление вирусов</li>
-                                <li>Антивирусная защита</li>
-                            </ul>
-                            <div class="text-center">
-                                <a href="/service" class="templatemo-btn-read-more btn btn-orange">Подробнее</a>
-                            </div>
-                            <br class="clearfix"/>
-                        </div>
-                        
-                    </div>
-                    
-                    <div class="col-md-4">
-                        <div class="templatemo-service-item">
-                            <div>
-                                <img src="images/battery.png" alt="icon"/>
-                                <span class="templatemo-service-item-header">ОРГТЕХНИКА</span>
-                            </div>
-                            <ul>
-                                <li>Заправка картриджей</li>
-                                <li>Восстановление картриджей</li>
-                                <li>Ремонт принтеров</li>
-                            </ul>
-                            <div class="text-center">
-                                <a href="/service"
-                                	class="templatemo-btn-read-more btn btn-orange">Подробнее</a>
-                            </div>
-                            <br class="clearfix"/>
-                        </div>
+                        <ul>
+                            <th:block th:each="serviceUnit: ${serviceCategory.units}">
+                                <li th:if="${serviceUnit.showOnMain}" th:utext="${serviceUnit.name}"></li>
+                            </th:block>
+                        </ul>
                         <br class="clearfix"/>
                     </div>
+                    <div class="clearfix"></div>
                 </div>
+
             </div>
         </div>
 
