@@ -83,9 +83,9 @@
                                 <span th:text="${serviceCategory.title}" class="templatemo-service-item-header"></span>
                             </div>
                             <ul>
-                                <li th:each="serviceUnit: ${serviceCategory.units}">
-                                    <th:block th:utext="${serviceUnit.name}"></th:block>
-                                </li>
+                                <th:block th:each="serviceUnit: ${serviceCategory.units}">
+                                    <li th:if="${serviceUnit.showOnMain}" th:utext="${serviceUnit.name}"></li>
+                                </th:block>
                             </ul>
                             <br class="clearfix"/>
                         </div>
