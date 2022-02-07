@@ -25,6 +25,6 @@ public class ServiceUnit {
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "category_id")
-    private Long category;
+    private ServiceCategory category;
 
 }

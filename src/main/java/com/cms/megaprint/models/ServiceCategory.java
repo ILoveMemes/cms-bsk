@@ -21,7 +21,7 @@ public class ServiceCategory {
     @Column(name = "pictureId")
     private Long pictureId;
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "service_category")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "category")
     List<ServiceUnit> units;
 
 }
