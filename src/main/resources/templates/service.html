@@ -75,58 +75,23 @@
         <div class="templatemo-service" id="templatemo-service">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-6">
+
+                    <div th:each="serviceCategory: ${serviceCategories}" class="col-md-6">
                         <div class="templatemo-service-item">
                             <div>
-                                <img src="images/leaf.png" alt="icon" />
-                                <span class="templatemo-service-item-header">КОМПЬЮТЕРЫ</span>
+                                <img th:src="@{/p/{id}(id = ${serviceCategory.pictureId})}" alt="icon" with="64" height="64"/>
+                                <span th:text="${serviceCategory.title}" class="templatemo-service-item-header"></span>
                             </div>
                             <ul>
-                                <li>Продажа компьютеров</li>
-                                <li>Ремонт компьютеров, планшетов, мониторов</li>
-                                <li>Диагностика компьютеров</li>
-                                <li>Апгрейд (модернизация) компьютера</li>
+                                <li th:each="serviceUnit: ${serviceCategory.units}">
+                                    <th:block th:utext="${serviceUnit.name}"></th:block>
+                                </li>
                             </ul>
-
                             <br class="clearfix"/>
                         </div>
                         <div class="clearfix"></div>
                     </div>
-                    
-                    <div class="col-md-6">
-                        <div class="templatemo-service-item">
-                            <div>
-                                <img src="images/mobile.png" alt="icon"/>
-                                <span class="templatemo-service-item-header">ПРОГРАММЫ</span>
-                            </div>
-                            <ul>
-                                <li>Установка и настройка операционной системы</li>
-                                <li>Установка и настройка драйверов и программного обеспечения</li>
-                                <li>Удаление вирусов</li>
-                                <li>Антивирусная защита</li>
-                            </ul>
 
-                            <br class="clearfix"/>
-                        </div>
-                        
-                    </div>
-                    
-                    <div class="col-md-6">
-                        <div class="templatemo-service-item">
-                            <div>
-                                <img src="images/battery.png" alt="icon"/>
-                                <span class="templatemo-service-item-header">ОРГТЕХНИКА</span>
-                            </div>
-                            <ul>
-                                <li>Заправка картриджей</li>
-                                <li>Восстановление картриджей</li>
-                                <li>Ремонт принтеров</li>
-                            </ul>
-
-                            <br class="clearfix"/>
-                        </div>
-                        <br class="clearfix"/>
-                    </div>
                 </div>
             </div>
         </div>
