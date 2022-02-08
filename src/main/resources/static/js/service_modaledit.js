@@ -1,0 +1,4 @@
+
+function showModalServiceUnit() {
+    $('#modalServiceUnit').modal();
+}
