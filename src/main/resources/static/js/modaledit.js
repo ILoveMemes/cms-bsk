@@ -48,7 +48,7 @@ function pickThElements() {
 
 function prepareDoc() {
     pickThElements().forEach(i => {
-        if (i.element.tagName = 'IMG') {
+        if (i.element.tagName == 'IMG') {
             i.element.onclick = () => showPicPickDialog(i.key, i.element);
         } else {
             i.element.onclick = () => editableClickHandler(i.key);
