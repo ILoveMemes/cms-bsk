@@ -1,5 +1,6 @@
 package com.cms.megaprint.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -23,8 +24,9 @@ public class ServiceUnit {
     @Column(name = "showOnMain")
     private boolean showOnMain;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id")
+    @JsonBackReference
     private ServiceCategory category;
 
 }
