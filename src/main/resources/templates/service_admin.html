@@ -84,11 +84,13 @@
                     </div>
                     <ul>
                         <th:block th:each="serviceUnit: ${serviceCategory.units}">
-                            <li th:if="${serviceUnit.showOnMain}" th:utext="${serviceUnit.name}"></li>
+                            <li th:utext="${serviceUnit.name}"
+                                th:onclick="'showModalServiceUnit(' + ${serviceUnit.id} + ', ' + ${serviceCategory.id} + ');'"></li>
                         </th:block>
                     </ul>
                     <div class="text-center">
-                        <a onclick="showModalServiceUnit();"
+                        <!-- TODO: add dialog for add a NEW service unit  -->
+                        <a th:onclick="'showModalServiceUnit(-1,' + ${serviceCategory.id} + ');'"
                            class="templatemo-btn-read-more btn btn-orange">Добавить услугу</a>
                     </div>
                     <br class="clearfix"/>
@@ -134,12 +136,12 @@
                 <input id="modalServiceUnitName" class="modal-text-edit" type="text"/>
                 <div>Цена</div>
                 <input id="modalServiceUnitPrice" class="modal-text-edit" type="text"/>
-                <div>Отображать на главной</div>
                 <input id="modalServiceUnitShowOnMain" type="checkbox"/>
+                <label for="modalServiceUnitShowOnMain">Отображать на главной</label>
                 <div>Категория</div>
                 <select id="modalServiceUnitCategory">
                     <th:block th:each="serviceCategory: ${serviceCategories}">
-                        <option th:utext="${serviceCategory.title}"></option>
+                        <option th:id="${serviceCategory.id}" th:utext="${serviceCategory.title}"></option>
                     </th:block>
                 </select>
             </div>
