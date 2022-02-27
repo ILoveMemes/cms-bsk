@@ -80,7 +80,8 @@
                 <div class="templatemo-service-item">
                     <div>
                         <img th:src="@{/p/{id}(id = ${serviceCategory.pictureId})}" alt="icon" with="64" height="64"/>
-                        <span th:text="${serviceCategory.title}" class="templatemo-service-item-header"></span>
+                        <span th:text="${serviceCategory.title}" class="templatemo-service-item-header"
+                              th:onclick="'showModalServiceCategory(' + ${serviceCategory.id} + ');'"></span>
                     </div>
                     <ul>
                         <th:block th:each="serviceUnit: ${serviceCategory.units}">
@@ -89,13 +90,18 @@
                         </th:block>
                     </ul>
                     <div class="text-center">
-                        <!-- TODO: add dialog for add a NEW service unit  -->
                         <a th:onclick="'showModalServiceUnit(-1,' + ${serviceCategory.id} + ');'"
                            class="templatemo-btn-read-more btn btn-orange">Добавить услугу</a>
                     </div>
                     <br class="clearfix"/>
                 </div>
                 <div class="clearfix"></div>
+            </div>
+            <div class="col-md-6">
+                <div class="text-center">
+                    <a th:onclick="'showModalServiceCategory(-1);'"
+                       class="templatemo-btn-read-more btn btn-orange">Добавить категорию</a>
+                </div>
             </div>
 
         </div>
@@ -152,6 +158,78 @@
         </div>
     </div>
 </div>
+
+<!-- Modal for ServiceCategory -->
+<div class="modal fade" id="modalServiceCategory" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalServiceCategoryLabel">Редактирование</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div>Название</div>
+                <input id="modalServiceCategoryTitle" class="modal-text-edit" type="text"/>
+                <div>Картинка</div>
+                <img id="modalServiceCategoryPicture" src="/images/blank_image.png" width="64" height="64"/>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                <button type="button" class="btn btn-primary" id="modalServiceCategoryApply">Сохранить изменения</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- TODO: move to the separate file picture tools (html and js) -->
+<!-- Modal picture pick dialog -->
+<div class="modal fade" id="modalPicPickDialog" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalPicPickDialogLabel">Выберите картинку</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-list-container" id="modalPicPickList"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" onclick="doLoadNewPicture();">Загрузить</button>
+                <button type="button" class="btn btn-secondary" id="modalPickDeleteSelected" disabled="true">Удалить</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
+                <button type="button" class="btn btn-primary" id="modalPicPickDialogApply">Выбрать</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal picture upload dialog -->
+<div class="modal fade" id="modalPicUploadDialog" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalPicUploadDialogLabel">Загрузить картинку</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <input type="file" name="image" accept="image/png, image/jpeg" id="modalPicUploadInput" />
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" onclick="dismissUpload();">Отмена</button>
+                <button type="button" class="btn btn-primary" id="modalPicUploadDialogApply">Загрузить</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script th:inline="javascript">
+    picDialogInit();
+    picPickDialogRefresh();
+</script>
 
 </body>
 </html>
