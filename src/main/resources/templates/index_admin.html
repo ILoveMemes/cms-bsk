@@ -242,53 +242,8 @@
                 </div>
             </div>
         </div>
-        <!-- Modal picture upload dialog -->
-        <div class="modal fade" id="modalPicUploadDialog" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="modalPicUploadDialogLabel">Загрузить картинку</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <input type="file" name="image" accept="image/png, image/jpeg" id="modalPicUploadInput" />
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" onclick="dismissUpload();">Отмена</button>
-                        <button type="button" class="btn btn-primary" id="modalPicUploadDialogApply">Загрузить</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Modal picture pick dialog -->
-        <div class="modal fade" id="modalPicPickDialog" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="modalPicPickDialogLabel">Выберите картинку</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="modal-list-container" id="modalPicPickList"></div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" onclick="doLoadNewPicture();">Загрузить</button>
-                        <button type="button" class="btn btn-secondary" id="modalPickDeleteSelected" disabled="true">Удалить</button>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
-                        <button type="button" class="btn btn-primary" id="modalPicPickDialogApply">Выбрать</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <script th:inline="javascript">
-            picDialogInit();
-            picPickDialogRefresh();
-        </script>
+        <!-- modal windows for picture management -->
+        <th:block th:include="picture_modal::pick_and_upload"></th:block>
 
     </body>
 </html>
