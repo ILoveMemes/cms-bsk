@@ -4,12 +4,12 @@ function showPicUploadDialog() {
     $('#modalPicUploadDialog').modal();
 }
 
-function picDialogInit() {
+function picDialogInit(applyFunction) {
     $('#modalPicUploadDialogApply').unbind();
-    $('#modalPicUploadDialogApply').click(doUpload);
+    $('#modalPicUploadDialogApply').click(() => doUpload(applyFunction));
 }
 
-function doUpload() {
+function doUpload(applyFunction) {
     let pic = document.getElementById('modalPicUploadInput').files[0];  // file from input
     let req = new XMLHttpRequest();
     let formData = new FormData();
@@ -19,7 +19,7 @@ function doUpload() {
         if (req.readyState == XMLHttpRequest.DONE && req.status == 200) {
             $('#modalPicUploadDialog').modal('hide');
             //picPickDialogRefresh();
-            showPicPickDialog(); // TODO: why there is not applyFunction ???
+            showPicPickDialog(applyFunction);
         }
     };
     req.send(formData);
@@ -33,6 +33,7 @@ function dismissUpload() {
 //////////////////////////// picture select dialog ////////////////////////////////////
 
 function  showPicPickDialog(applyFunction) {
+    picDialogInit(applyFunction);
     picPickDialogRefresh(applyFunction);
     $('#modalPicPickDialog').modal();
 }
