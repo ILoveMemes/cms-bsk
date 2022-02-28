@@ -1,8 +1,12 @@
+async function findById(controller, id) {
+    return fetch('/' + controller + '/findById/' +id).then(response => response.json());
+}
 
 function showModalServiceUnit(unitId, categoryId) {
     if (unitId >= 0) {
-        fetch('/service_units/findById/' + unitId)
-        .then(response => response.json())
+        //fetch('/service_units/findById/' + unitId)
+        //.then(response => response.json())
+        findById('service_units', unitId)
         .then(result => {
             $('#modalServiceUnit').modal();
             $('#modalServiceUnitName').val(result.name);
