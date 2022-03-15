@@ -1,10 +1,7 @@
 package com.cms.megaprint.db;
 
 import com.cms.megaprint.configuration.VarConfig;
-import com.cms.megaprint.models.CommonValue;
-import com.cms.megaprint.models.Picture;
-import com.cms.megaprint.models.ServiceCategory;
-import com.cms.megaprint.models.ServiceUnit;
+import com.cms.megaprint.models.*;
 import lombok.Getter;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
@@ -44,6 +41,8 @@ public class HibernateSessionFactoryUtil {
             configuration.addAnnotatedClass(CommonValue.class);
             configuration.addAnnotatedClass(ServiceUnit.class);
             configuration.addAnnotatedClass(ServiceCategory.class);
+            configuration.addAnnotatedClass(Teammate.class);
+            configuration.addAnnotatedClass(TeammatesSocialNetwork.class);
 
             StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties());
             sessionFactory = configuration.buildSessionFactory(builder.build());
