@@ -494,6 +494,13 @@ h1, h2, h3, h4, h5, h6, span, p { font-family: 'Open Sans', Arial, Helvetice Neu
 	color:#333333;
 }
 
+.social-icon {
+    background: no-repeat;
+    width: 42px;
+    height: 42px;
+    display: block;
+}
+
 .social-icon-fb {
     background: url('../images/social-icon-fb.png') no-repeat;
     width: 42px;

@@ -217,67 +217,22 @@
                 </div>
                 <div class="clearfix"> </div>
                     <ul class="row row_team">
-                        <li class="col-lg-3 col-md-3 col-sm-6 ">
+                        <li th:each="teammate: ${teammates}" class="col-lg-3 col-md-3 col-sm-6 ">
                             <div class="text-center">
                                 <div class="member-thumb">
-                                    <img src="images/mando.png" class="img-responsive" alt="member 1" />
+                                    <img th:src="@{/p/{id}(id = ${teammate.photoId})}" class="img-responsive" th:alt="${teammate.name}" width="500" height="500" />
                                     <div class="thumb-overlay">
-                                        <a href="#"><span class="social-icon-fb"></span></a>
-                                        <a href="#"><span class="social-icon-twitter"></span></a>
-                                        <a href="#"><span class="social-icon-linkedin"></span></a>
+                                        <th:block th:each="teammateSocialNetwork: ${teammate.socialNetworks}">
+                                            <a th:href="${teammateSocialNetwork.link}">
+                                                <!--span class="social-icon" th:style="'background: url(\'' + @{/p/{id}(id = ${teammateSocialNetwork.pictureId})} + '\');'"></span-->
+                                                <img th:src="@{/p/{id}(id = ${teammateSocialNetwork.pictureId})}" width="42" height="42" />
+                                            </a>
+                                        </th:block>
                                     </div>
                                 </div>
                                 <div class="team-inner">
-                                    <p class="team-inner-header">MANDALORIAN</p>
-                                    <p class="team-inner-subtext">Designer</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="col-lg-3 col-md-3 col-sm-6 ">
-                            <div class="text-center">
-                                <div class="member-thumb">
-                                    <img src="images/me.png" class="img-responsive" alt="member 2" />
-                                    <div class="thumb-overlay">
-                                        <a href="#"><span class="social-icon-fb"></span></a>
-                                        <a href="#"><span class="social-icon-twitter"></span></a>
-                                        <a href="#"><span class="social-icon-linkedin"></span></a>
-                                    </div>
-                                </div>
-                                <div class="team-inner">
-                                    <p class="team-inner-header">IVAN</p>
-                                    <p class="team-inner-subtext">Developer</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="col-lg-3 col-md-3 col-sm-6 ">
-                            <div class="text-center">
-                                <div class="member-thumb">
-                                    <img src="images/lex.png" class="img-responsive" alt="member 3" />
-                                    <div class="thumb-overlay">
-                                        <a href="#"><span class="social-icon-fb"></span></a>
-                                        <a href="#"><span class="social-icon-twitter"></span></a>
-                                        <a href="#"><span class="social-icon-linkedin"></span></a>
-                                    </div>
-                                </div>
-                                <div class="team-inner">
-                                    <p class="team-inner-header">ALEXEY</p>
-                                    <p class="team-inner-subtext">Director</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="col-lg-3 col-md-3 col-sm-6 ">
-                            <div class="text-center">
-                                <div class="member-thumb">
-                                    <img src="images/obi.png" class="img-responsive" alt="member 4" />
-                                    <div class="thumb-overlay">
-                                        <a href="#"><span class="social-icon-fb"></span></a>
-                                        <a href="#"><span class="social-icon-twitter"></span></a>
-                                        <a href="#"><span class="social-icon-linkedin"></span></a>
-                                    </div>
-                                </div>
-                                <div class="team-inner">
-                                    <p class="team-inner-header">OBI WAN</p>
-                                    <p class="team-inner-subtext">Manager</p>
+                                    <p class="team-inner-header" th:text="${teammate.name}"></p>
+                                    <p class="team-inner-subtext" th:text="${teammate.position}"></p>
                                 </div>
                             </div>
                         </li>
