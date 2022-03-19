@@ -7,9 +7,9 @@ import com.cms.megaprint.services.TeammateSocialNetworkService;
 import org.springframework.stereotype.Service;
 
 @Service
-public class TeammatesSocialNetworkServiceImpl extends DefaultServiceImpl<TeammatesSocialNetwork, Long> implements TeammateSocialNetworkService {
+public class TeammateSocialNetworkServiceImpl extends DefaultServiceImpl<TeammatesSocialNetwork, Long> implements TeammateSocialNetworkService {
 
-    public TeammatesSocialNetworkServiceImpl(CrudRepo<TeammatesSocialNetwork, Long> repo) {
+    public TeammateSocialNetworkServiceImpl(CrudRepo<TeammatesSocialNetwork, Long> repo) {
         super(repo);
     }
 
