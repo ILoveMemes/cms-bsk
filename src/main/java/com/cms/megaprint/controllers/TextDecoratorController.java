@@ -15,7 +15,7 @@ public class TextDecoratorController {
 
     @PostMapping("/decorate")
     @ResponseBody
-    public String decorate(@RequestBody String text) {
+    public String decorate(@RequestBody(required = false) String text) {
         return textDecoratorService.decorate(text);
     }
 

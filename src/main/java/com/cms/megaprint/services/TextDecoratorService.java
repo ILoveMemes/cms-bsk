@@ -43,6 +43,9 @@ public class TextDecoratorService {
     }
 
     public String decorate(String text) {
+        if (text == null) {
+            return "";
+        }
         Optional<String> res;
         // link
         String backup = "";
