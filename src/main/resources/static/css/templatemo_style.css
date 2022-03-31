@@ -803,3 +803,13 @@ ul.templatemo-project-gallery  li  a img:hover {
             background-image: none;
             border: 1px solid transparent;
 }
+
+.list-item-highlight {
+    padding: 5px;
+    margin: 5px;
+    background: #EEE;
+}
+
+.add-icon-on-button {
+    margin: 0px 5px;
+}
