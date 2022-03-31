@@ -27,13 +27,10 @@ public class PictureGetController {
     public @ResponseBody
     ResponseEntity<byte[]> getPicture(@PathVariable Long id) {
         Optional<Picture> pic = pictureService.findById(id);
-        if (pic.isPresent()) {
-            return ResponseEntity.ok()
-                    .contentLength(pic.get().getData().length)
-                    .contentType(MediaType.parseMediaType(new MimetypesFileTypeMap().getContentType(pic.get().getName())))
-                    .body(pic.get().getData());
-        }
-        return ResponseEntity.badRequest().body(null);
+        return pic.map(picture -> ResponseEntity.ok()
+                .contentLength(picture.getData().length)
+                .contentType(MediaType.parseMediaType(new MimetypesFileTypeMap().getContentType(picture.getName())))
+                .body(picture.getData())).orElseGet(() -> ResponseEntity.badRequest().body(null));
     }
 
 }

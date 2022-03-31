@@ -19,10 +19,7 @@ public class CommonValueController extends CrudController<CommonValue, Long> {
     @GetMapping("/findByKey/{key}")
     public @ResponseBody CommonValue findByKey(@PathVariable String key) {
         Optional<CommonValue> val = ((CommonValueService) service).findByKey(key);
-        if (val.isPresent()) {
-            return val.get();
-        }
-        return null;
+        return val.orElse(null);
     }
 
 }

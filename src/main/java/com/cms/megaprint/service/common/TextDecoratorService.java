@@ -29,7 +29,7 @@ public class TextDecoratorService {
             flag = !flag;
             return s + (flag ? openTag : closeTag) + s2;
         }
-    };
+    }
 
     public boolean startsWith(String str, String start) {
         if (start.length() <= str.length()) {
@@ -73,14 +73,15 @@ public class TextDecoratorService {
         backup += text.substring(pos, text.length());
         text = backup;
         // list
-        res = Stream.of(text.split("\n")).reduce(new BinaryOperator<String>() {
+        res = Stream.of(text.split("\n")).reduce(new BinaryOperator<>() {
             private boolean inList = false;
             private boolean firstLine = true;
+
             @Override
             public String apply(String s, String s2) {
                 String result = "";
                 if (firstLine) {
-                    if(startsWith(s, "* ")) {
+                    if (startsWith(s, "* ")) {
                         inList = true;
                         result += "<ul><li>" + s.replace("* ", "") + "</li>";
                     } else {
@@ -91,7 +92,7 @@ public class TextDecoratorService {
                 }
                 if (startsWith(s2, "* ")) {
                     if (inList) {
-                        result += "<li>" + s2.replace("* ", "") +  "</li>";
+                        result += "<li>" + s2.replace("* ", "") + "</li>";
                     } else {
                         inList = true;
                         result += "<ul><li>" + s2.replace("* ", "") + "</li>";

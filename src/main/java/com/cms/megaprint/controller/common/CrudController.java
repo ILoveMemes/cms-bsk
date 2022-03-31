@@ -24,7 +24,7 @@ public class CrudController<T, ID> {
 
     @GetMapping("/findById/{id}")
     public T findById(@PathVariable ID id) throws NotFoundException {
-        return service.findById(id).orElseThrow(() -> new NotFoundException());
+        return service.findById(id).orElseThrow(NotFoundException::new);
     }
 
     @PostMapping("/save")
