@@ -80,19 +80,49 @@
                 <div class="templatemo-service-item">
                     <div>
                         <img th:src="@{/p/{id}(id = ${serviceCategory.pictureId})}" alt="icon" with="64" height="64"/>
-                        <span th:text="${serviceCategory.title}" class="templatemo-service-item-header"
-                              th:onclick="'showModalServiceCategory(' + ${serviceCategory.id} + ');'"></span>
+                        <span th:text="${serviceCategory.title}" class="templatemo-service-item-header list-item-highlight"></span>
+                        <img src="images/edit.png" width="24" height="24" alt="edit"
+                             th:onclick="'showModalServiceCategory(' + ${serviceCategory.id} + ');'"/>
+                        <img src="images/delete.png" width="24" height="24" alt="delete"
+                             th:onclick="'deleteServiceCategory(' + ${serviceCategory.id} + ');'"/>
                     </div>
                     <ul>
                         <th:block th:each="serviceUnit: ${serviceCategory.units}">
-                            <li th:utext="${serviceUnit.name}"
-                                th:onclick="'showModalServiceUnit(' + ${serviceUnit.id} + ', ' + ${serviceCategory.id} + ');'"></li>
+                            <li>
+                                <span class="list-item-highlight" th:utext="${serviceUnit.name}"></span>
+                                <img src="images/edit.png" width="24" height="24" alt="edit"
+                                     th:onclick="'showModalServiceUnit(' + ${serviceUnit.id} + ', ' + ${serviceCategory.id} + ');'"/>
+                                <img src="images/delete.png" width="24" height="24" alt="delete"
+                                     th:onclick="'deleteServiceUnit(' + ${serviceUnit.id} + ');'"/>
+                            </li>
                         </th:block>
                     </ul>
                     <div class="text-center">
                         <a th:onclick="'showModalServiceUnit(-1,' + ${serviceCategory.id} + ');'"
-                           class="templatemo-btn-read-more btn btn-orange">Добавить услугу</a>
+                           class="templatemo-btn-read-more btn btn-orange">
+                            <img src="images/add.png" width="24" height="24" class="add-icon-on-button">Добавить услугу</a>
                     </div>
+                    <br class="clearfix"/>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div th:if="${haveUnitsWithoutCategories}" class="col-md-6">
+                <div class="templatemo-service-item">
+                    <div>
+                        <img src="images/blank_image.png" alt="icon" with="64" height="64"/>
+                        <span class="templatemo-service-item-header list-item-highlight">Услуги, не включенные в категории</span>
+                    </div>
+                    <ul>
+                        <th:block th:each="serviceUnit: ${unitsWithoutCategories}">
+                            <li>
+                                <span class="list-item-highlight" th:utext="${serviceUnit.name}"></span>
+                                <img src="images/edit.png" width="24" height="24" alt="edit"
+                                     th:onclick="'showModalServiceUnit(' + ${serviceUnit.id} + ', -1);'"/>
+                                <img src="images/delete.png" width="24" height="24" alt="delete"
+                                     th:onclick="'deleteServiceUnit(' + ${serviceUnit.id} + ');'"/>
+                            </li>
+                        </th:block>
+                    </ul>
                     <br class="clearfix"/>
                 </div>
                 <div class="clearfix"></div>
@@ -100,7 +130,8 @@
             <div class="col-md-6">
                 <div class="text-center">
                     <a th:onclick="'showModalServiceCategory(-1);'"
-                       class="templatemo-btn-read-more btn btn-orange">Добавить категорию</a>
+                       class="templatemo-btn-read-more btn btn-orange">
+                        <img src="images/add.png" width="24" height="24" class="add-icon-on-button">Добавить категорию</a>
                 </div>
             </div>
 
