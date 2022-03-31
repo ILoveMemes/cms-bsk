@@ -1,4 +1,4 @@
 package com.cms.megaprint.exception;
 
-public class NotFoundException extends BaseException {
+public class NotFoundException extends RuntimeException {
 }
