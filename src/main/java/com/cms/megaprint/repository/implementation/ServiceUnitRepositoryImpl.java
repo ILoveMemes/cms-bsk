@@ -23,7 +23,7 @@ public class ServiceUnitRepositoryImpl extends CrudRepoHibernateImpl<ServiceUnit
     public List<ServiceUnit> findUnitsWithoutCategories() {
         Session session = hibernateSessionFactoryUtil.getSessionFactory().openSession();
         Transaction tx1 = session.beginTransaction();
-        Query query = session.createQuery("select s from ServiceUnit s where id not in (select id from ServiceCategory)");
+        Query query = session.createQuery("select s from ServiceUnit s where s.category.id not in (select id from ServiceCategory)");
         List<ServiceUnit> result = query.list();
         tx1.commit();
         session.close();
