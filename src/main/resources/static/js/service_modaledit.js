@@ -122,3 +122,11 @@ function showModalServiceCategory(categoryId) {
         $('#modalServiceCategory').modal();
     }
 }
+
+function deleteServiceUnit(suId) {
+    fetch('/service_units/deleteById/' + suId).then(response => window.location.reload());
+}
+
+function deleteServiceCategory(scId) {
+    fetch('/service_categories/deleteById/' + scId).then(response => window.location.reload());
+}
