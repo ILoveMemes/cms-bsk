@@ -3,10 +3,10 @@ package com.cms.megaprint.controller.endpoint;
 import com.cms.megaprint.controller.common.CrudController;
 import com.cms.megaprint.model.Teammate;
 import com.cms.megaprint.service.common.CrudService;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+@RestController
 @RequestMapping("/teammates")
 public class TeammateController extends CrudController<Teammate, Long> {
 

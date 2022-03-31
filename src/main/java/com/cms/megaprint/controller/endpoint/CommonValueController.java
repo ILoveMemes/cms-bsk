@@ -3,12 +3,11 @@ package com.cms.megaprint.controller.endpoint;
 import com.cms.megaprint.controller.common.CrudController;
 import com.cms.megaprint.model.CommonValue;
 import com.cms.megaprint.service.intface.CommonValueService;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
-@Controller
+@RestController
 @RequestMapping("/val")
 public class CommonValueController extends CrudController<CommonValue, Long> {
 

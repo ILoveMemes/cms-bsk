@@ -3,7 +3,6 @@ package com.cms.megaprint.controller.endpoint;
 import com.cms.megaprint.controller.common.CrudController;
 import com.cms.megaprint.model.Picture;
 import com.cms.megaprint.service.intface.PictureService;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -11,7 +10,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Controller
+@RestController
 @RequestMapping("/pic")
 public class PictureController extends CrudController<Picture, Long> {
 
