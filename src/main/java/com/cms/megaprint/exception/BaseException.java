@@ -1,4 +1,4 @@
 package com.cms.megaprint.exception;
 
-public class BaseException extends Exception {
+public class BaseException extends RuntimeException {
 }
