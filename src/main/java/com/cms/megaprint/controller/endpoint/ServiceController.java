@@ -1,4 +1,4 @@
-package com.cms.megaprint.controller;
+package com.cms.megaprint.controller.endpoint;
 
 import com.cms.megaprint.model.CommonValue;
 import com.cms.megaprint.service.intface.CommonValueService;
@@ -9,19 +9,19 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class ServiceAdminController {
+public class ServiceController {
 
     private final CommonValueService commonValueService;
     private final TextDecoratorService textDecoratorService;
     private final ServiceCategoryService serviceCategoryService;
 
-    public ServiceAdminController(CommonValueService commonValueService, TextDecoratorService textDecoratorService, ServiceCategoryService serviceCategoryService) {
+    public ServiceController(CommonValueService commonValueService, TextDecoratorService textDecoratorService, ServiceCategoryService serviceCategoryService) {
         this.commonValueService = commonValueService;
         this.textDecoratorService = textDecoratorService;
         this.serviceCategoryService = serviceCategoryService;
     }
 
-    @RequestMapping("admin_service")
+    @RequestMapping("service")
     public String service(Model model) {
 
         for (CommonValue cValue: commonValueService.findAll()) {
@@ -30,8 +30,7 @@ public class ServiceAdminController {
 
         model.addAttribute("serviceCategories", serviceCategoryService.findAll());
 
-        return "service_admin";
-
+        return "service";
     }
 
 }

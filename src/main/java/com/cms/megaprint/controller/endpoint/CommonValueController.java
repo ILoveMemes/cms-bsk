@@ -1,4 +1,4 @@
-package com.cms.megaprint.controller;
+package com.cms.megaprint.controller.endpoint;
 
 import com.cms.megaprint.controller.common.CrudController;
 import com.cms.megaprint.model.CommonValue;

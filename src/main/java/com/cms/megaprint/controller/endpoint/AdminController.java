@@ -1,4 +1,4 @@
-package com.cms.megaprint.controller;
+package com.cms.megaprint.controller.endpoint;
 
 import com.cms.megaprint.model.CommonValue;
 import com.cms.megaprint.service.intface.CommonValueService;

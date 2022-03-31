@@ -2,7 +2,7 @@ package com.cms.megaprint.service.implementation;
 
 import com.cms.megaprint.service.implementation.dflt.DefaultServiceImpl;
 import com.cms.megaprint.model.CommonValue;
-import com.cms.megaprint.repository.CommonValueRepository;
+import com.cms.megaprint.repository.intface.CommonValueRepository;
 import com.cms.megaprint.service.intface.CommonValueService;
 import org.springframework.stereotype.Service;
 

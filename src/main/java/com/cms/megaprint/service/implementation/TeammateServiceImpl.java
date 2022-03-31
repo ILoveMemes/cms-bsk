@@ -2,7 +2,7 @@ package com.cms.megaprint.service.implementation;
 
 import com.cms.megaprint.service.implementation.dflt.DefaultServiceImpl;
 import com.cms.megaprint.model.Teammate;
-import com.cms.megaprint.repository.CrudRepo;
+import com.cms.megaprint.repository.intface.CrudRepo;
 import com.cms.megaprint.service.intface.TeammateService;
 import org.springframework.stereotype.Service;
 

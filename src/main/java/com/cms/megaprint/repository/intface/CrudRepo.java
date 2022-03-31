@@ -1,4 +1,4 @@
-package com.cms.megaprint.repository;
+package com.cms.megaprint.repository.intface;
 
 import com.cms.megaprint.common.CrudInterface;
 

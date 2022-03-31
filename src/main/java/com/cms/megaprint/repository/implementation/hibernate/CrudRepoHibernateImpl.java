@@ -1,7 +1,7 @@
 package com.cms.megaprint.repository.implementation.hibernate;
 
 import com.cms.megaprint.db.HibernateSessionFactoryUtil;
-import com.cms.megaprint.repository.CrudRepo;
+import com.cms.megaprint.repository.intface.CrudRepo;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.springframework.core.GenericTypeResolver;

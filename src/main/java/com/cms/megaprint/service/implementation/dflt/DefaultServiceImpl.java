@@ -1,6 +1,6 @@
 package com.cms.megaprint.service.implementation.dflt;
 
-import com.cms.megaprint.repository.CrudRepo;
+import com.cms.megaprint.repository.intface.CrudRepo;
 import com.cms.megaprint.service.common.CrudService;
 
 import java.util.List;
