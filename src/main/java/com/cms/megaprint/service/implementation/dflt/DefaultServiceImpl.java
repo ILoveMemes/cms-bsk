@@ -21,10 +21,9 @@ public class DefaultServiceImpl<T, ID> implements CrudService<T, ID> {
 
     @Override
     public Optional<T> findById(ID id) {
-        // TODO: add mapper here (map Data Base Entity to Data Transfer Object)
-        // MapStruct
-        // instead of Optional use runtime exception
-        return repo.findById(id).map(entity -> entity);
+        // add mapper here (map Data Base Entity to Data Transfer Object)
+        // CrudController can throw NotFoundException if Optional is empty
+        return repo.findById(id);
     }
 
     @Override
