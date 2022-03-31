@@ -1,7 +1,7 @@
 package com.cms.megaprint.db;
 
 import com.cms.megaprint.configuration.VarConfig;
-import com.cms.megaprint.models.*;
+import com.cms.megaprint.model.*;
 import lombok.Getter;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
