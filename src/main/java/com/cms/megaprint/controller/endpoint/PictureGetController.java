@@ -2,6 +2,10 @@ package com.cms.megaprint.controller.endpoint;
 
 import com.cms.megaprint.model.Picture;
 import com.cms.megaprint.service.intface.PictureService;
+import lombok.SneakyThrows;
+import org.apache.commons.io.IOUtils;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.io.Resource;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -23,14 +27,22 @@ public class PictureGetController {
         this.pictureService = pictureService;
     }
 
+    @Value("classpath:static/images/blank_image.png")
+    Resource blankImage;
+
+    @SneakyThrows
     @GetMapping("/{id}")
     public @ResponseBody
     ResponseEntity<byte[]> getPicture(@PathVariable Long id) {
         Optional<Picture> pic = pictureService.findById(id);
         return pic.map(picture -> ResponseEntity.ok()
-                .contentLength(picture.getData().length)
-                .contentType(MediaType.parseMediaType(new MimetypesFileTypeMap().getContentType(picture.getName())))
-                .body(picture.getData())).orElseGet(() -> ResponseEntity.badRequest().body(null));
+                    .contentLength(picture.getData().length)
+                    .contentType(MediaType.parseMediaType(new MimetypesFileTypeMap().getContentType(picture.getName())))
+                    .body(picture.getData()))
+                .orElse(ResponseEntity.ok()
+                     .contentLength(blankImage.contentLength())
+                     .contentType(MediaType.IMAGE_PNG)
+                     .body(IOUtils.toByteArray(blankImage.getInputStream())));
     }
 
 }
