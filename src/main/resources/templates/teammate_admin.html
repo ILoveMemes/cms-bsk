@@ -82,39 +82,41 @@
                                     <img th:src="@{/p/{id}(id = ${teammate.photoId})}" class="img-responsive" th:alt="${teammate.name}" width="500" height="500" />
                                 </div>
                                 <div class="team-inner">
-                                    <p class="team-inner-header" th:text="${teammate.name}"></p>
+                                    <p class="team-inner-header">
+                                        <span th:text="${teammate.name}"></span>
+                                        <img src="images/edit.png" width="24" height="24" alt="edit"
+                                             th:onclick="'showModalTeammate(' + ${teammate.id} + ');'"/>
+                                        <img src="images/delete.png" width="24" height="24" alt="delete"
+                                             th:onclick="'deleteTeammate(' + ${teammate.id} + ');'"/>
+                                    </p>
                                     <p class="team-inner-subtext" th:text="${teammate.position}"></p>
                                 </div>
                             </div>
-                            <div class="text-center">
-                                <a th:onclick="'showModalTeammate(' + ${teammate.id} + ');'"
-                                   class="templatemo-btn-read-more btn btn-orange">Редактировать</a>
-                                <a th:onclick="'deleteTeammate(' + ${teammate.id} + ');'"
-                                   class="templatemo-btn-read-more btn btn-orange">Удалить сотрудника</a>
-                            </div>
-                            <div>
+                            <div class="social-network-highlight">
+                                <div class="text-center">
+                                    <h4><u>Ссылки на социальные сети</u></h4>
+                                </div>
                                 <div class="">
-                                    <div th:each="teammateSocialNetwork: ${teammate.socialNetworks}">
+                                    <div class="spacing" th:each="teammateSocialNetwork: ${teammate.socialNetworks}">
                                         <a th:href="${teammateSocialNetwork.link}">
                                             <img th:src="@{/p/{id}(id = ${teammateSocialNetwork.pictureId})}" width="42" height="42" />
                                             <span th:text="${teammateSocialNetwork.link}"></span>
                                         </a>
-                                        <div>
-                                            <a th:onclick="'showModalTeammateSN(' + ${teammateSocialNetwork.id} + ', ' + ${teammate.id} + ');'" class="templatemo-btn-read-more btn btn-orange">Редактировать</a>
-                                            <a th:onclick="'deleteTeammateSN(' + ${teammateSocialNetwork.id} + ');'" class="templatemo-btn-read-more btn btn-orange">Удалить</a>
-                                        </div>
+                                        <img src="images/edit.png" width="24" height="24" alt="edit"
+                                             th:onclick="'showModalTeammateSN(' + ${teammateSocialNetwork.id} + ', ' + ${teammate.id} + ');'"/>
+                                        <img src="images/delete.png" width="24" height="24" alt="delete"
+                                             th:onclick="'deleteTeammateSN(' + ${teammateSocialNetwork.id} + ');'"/>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="text-center" style="padding: 10px;">
-                                <a th:onclick="'showModalTeammateSN(-1, ' + ${teammate.id} + ');'" class="templatemo-btn-read-more btn btn-orange">Добавить ссылку на социальную сеть</a>
+                                <a th:onclick="'showModalTeammateSN(-1, ' + ${teammate.id} + ');'" class="spacing btn btn-orange">
+                                    <img src="images/add.png" width="24" height="24" class="add-icon-on-button">Добавить ссылку</a>
                             </div>
                             <div style="width:50px;height:50px;"></div>
                         </li>
                         <li class="col-lg-3 col-md-3 col-sm-6 ">
                             <div class="text-center">
-                                <a th:onclick="'showModalTeammate(-1);'"
-                                   class="templatemo-btn-read-more btn btn-orange">Добавить сотрудника</a>
+                                <a th:onclick="'showModalTeammate(-1);'" class="templatemo-btn-read-more btn btn-orange">
+                                    <img src="images/add.png" width="24" height="24" class="add-icon-on-button">Добавить сотрудника</a>
                             </div>
                         </li>
                     </ul>

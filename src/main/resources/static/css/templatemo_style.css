@@ -813,3 +813,13 @@ ul.templatemo-project-gallery  li  a img:hover {
 .add-icon-on-button {
     margin: 0px 5px;
 }
+
+.spacing {
+    margin: 5px 5px;
+}
+
+.social-network-highlight {
+    //border: solid 2px;
+    border-color: #fff;
+    background: #fff5;
+}
