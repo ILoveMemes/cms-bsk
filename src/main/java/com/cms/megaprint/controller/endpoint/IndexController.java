@@ -34,7 +34,7 @@ public class IndexController {
             model.addAttribute(cValue.getKey(), textDecoratorService.decorate(cValue.getValue()));
         }
 
-        model.addAttribute("serviceCategories", serviceCategoryService.findAll());
+        model.addAttribute("serviceCategories", serviceCategoryService.findAllThatShowOnMain());
         model.addAttribute("teammates", teammateService.findAll());
 
         return "testIndex";
