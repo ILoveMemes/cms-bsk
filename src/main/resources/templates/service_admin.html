@@ -89,7 +89,8 @@
                     <ul>
                         <th:block th:each="serviceUnit: ${serviceCategory.units}">
                             <li>
-                                <span class="list-item-highlight" th:utext="${serviceUnit.name}"></span>
+                                <span th:attrappend="class=${serviceUnit.showOnMain}?'list-item-visible-highlight':'list-item-highlight'"
+                                      th:utext="${serviceUnit.name}"></span>
                                 <img src="images/edit.png" width="24" height="24" alt="edit"
                                      th:onclick="'showModalServiceUnit(' + ${serviceUnit.id} + ', ' + ${serviceCategory.id} + ');'"/>
                                 <img src="images/delete.png" width="24" height="24" alt="delete"

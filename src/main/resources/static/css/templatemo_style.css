@@ -807,7 +807,13 @@ ul.templatemo-project-gallery  li  a img:hover {
 .list-item-highlight {
     padding: 5px;
     margin: 5px;
-    background: #EEE;
+    background: #eee;
+}
+
+.list-item-visible-highlight {
+    padding: 5px;
+    margin: 5px;
+    background: #cfffcf;
 }
 
 .add-icon-on-button {
