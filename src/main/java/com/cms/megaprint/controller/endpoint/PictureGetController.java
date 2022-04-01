@@ -33,8 +33,15 @@ public class PictureGetController {
     @SneakyThrows
     @GetMapping("/{id}")
     public @ResponseBody
-    ResponseEntity<byte[]> getPicture(@PathVariable Long id) {
-        Optional<Picture> pic = pictureService.findById(id);
+    ResponseEntity<byte[]> getPicture(@PathVariable String id) {
+        Optional<Picture> pic = Optional.empty();
+        try {
+            Long lId = Long.valueOf(id).longValue();
+            pic = pictureService.findById(lId);
+        }
+        catch (Exception ex) {
+            // do nothing. blank image will return
+        }
         return pic.map(picture -> ResponseEntity.ok()
                     .contentLength(picture.getData().length)
                     .contentType(MediaType.parseMediaType(new MimetypesFileTypeMap().getContentType(picture.getName())))
