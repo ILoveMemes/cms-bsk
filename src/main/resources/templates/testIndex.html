@@ -221,10 +221,9 @@
                             <div class="text-center">
                                 <div class="member-thumb">
                                     <img th:src="@{/p/{id}(id = ${teammate.photoId})}" class="img-responsive" th:alt="${teammate.name}" width="500" height="500" />
-                                    <div class="thumb-overlay">
+                                    <div class="thumb-overlay" th:attrappend="style='padding-left:' + *{100 / (teammate.socialNetworks.size + 1) + ((teammate.socialNetworks.size==1)?-5:5)} + '%;'">
                                         <th:block th:each="teammateSocialNetwork: ${teammate.socialNetworks}">
-                                            <a th:href="${teammateSocialNetwork.link}">
-                                                <!--span class="social-icon" th:style="'background: url(\'' + @{/p/{id}(id = ${teammateSocialNetwork.pictureId})} + '\');'"></span-->
+                                            <a style="margin-top:5px;" th:href="${teammateSocialNetwork.link}">
                                                 <img th:src="@{/p/{id}(id = ${teammateSocialNetwork.pictureId})}" width="42" height="42" />
                                             </a>
                                         </th:block>
