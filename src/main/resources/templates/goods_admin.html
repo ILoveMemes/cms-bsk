@@ -107,8 +107,8 @@
                                 </div>
                                 <div class="clearfix"> </div>
                                 <p class="blog_text">
-                                    <span th:text="${goodsEntity.shortDescription}"></span>
-                                    <a class="link_orange" href="#"><span class="txt_orange">Купить</span></a>
+                                    <span th:utext="${goodsFormattedDescription[goodsEntity.id].shrt}"></span>
+                                    <a class="link_orange" href="#"><span class="txt_orange">Подробнее</span></a>
                             </li>
                         </ul>
                     </div>
