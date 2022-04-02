@@ -829,3 +829,7 @@ ul.templatemo-project-gallery  li  a img:hover {
     border-color: #fff;
     background: #fff5;
 }
+
+.goods-visible-highlight {
+    background: #cfffcf;
+}
