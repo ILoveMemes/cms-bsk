@@ -580,6 +580,7 @@ ul.templatemo-project-gallery  li  a img:hover {
 }
 
 .link_orange:hover {
+    cursor: pointer;
     text-decoration:none;
 }
 .templatemo-project-gallery {         

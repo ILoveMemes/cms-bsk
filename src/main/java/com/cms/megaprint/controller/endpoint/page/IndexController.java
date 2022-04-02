@@ -2,13 +2,19 @@ package com.cms.megaprint.controller.endpoint.page;
 
 import com.cms.megaprint.configuration.VarConfig;
 import com.cms.megaprint.model.CommonValue;
+import com.cms.megaprint.model.Description;
+import com.cms.megaprint.model.Goods;
 import com.cms.megaprint.service.intface.CommonValueService;
+import com.cms.megaprint.service.intface.GoodsService;
 import com.cms.megaprint.service.intface.ServiceCategoryService;
 import com.cms.megaprint.service.intface.TeammateService;
 import com.cms.megaprint.service.common.TextDecoratorService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.util.HashMap;
+import java.util.Map;
 
 @Controller
 public class IndexController {
@@ -18,13 +24,21 @@ public class IndexController {
     private final TextDecoratorService textDecoratorService;
     private final ServiceCategoryService serviceCategoryService;
     private final TeammateService teammateService;
+    private final GoodsService goodsService;
 
-    public IndexController(VarConfig varConfig, CommonValueService commonValueService, TextDecoratorService textDecoratorService, ServiceCategoryService serviceCategoryService, TeammateService teammateService) {
+    public IndexController(
+            VarConfig varConfig,
+            CommonValueService commonValueService,
+            TextDecoratorService textDecoratorService,
+            ServiceCategoryService serviceCategoryService,
+            TeammateService teammateService,
+            GoodsService goodsService) {
         this.varConfig = varConfig;
         this.commonValueService = commonValueService;
         this.textDecoratorService = textDecoratorService;
         this.serviceCategoryService = serviceCategoryService;
         this.teammateService = teammateService;
+        this.goodsService = goodsService;
     }
 
     @RequestMapping({"", "/", "index", "index.html"})
@@ -36,6 +50,21 @@ public class IndexController {
 
         model.addAttribute("serviceCategories", serviceCategoryService.findAllThatShowOnMain());
         model.addAttribute("teammates", teammateService.findAll());
+
+        model.addAttribute("goods", goodsService.findAll());
+
+        Map<Long, Description> goodsDescription = new HashMap<>();
+        for (Goods goods: goodsService.findAll()) {
+            goodsDescription.put(
+                    goods.getId(),
+                    Description.of(
+                            textDecoratorService.decorate(goods.getShortDescription()),
+                            textDecoratorService.decorate(goods.getFullDescription())
+                    )
+            );
+        }
+
+        model.addAttribute("goodsFormattedDescription", goodsDescription);
 
         return "testIndex";
     }
