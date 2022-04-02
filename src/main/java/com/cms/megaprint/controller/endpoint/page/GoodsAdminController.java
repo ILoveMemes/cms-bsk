@@ -1,12 +1,11 @@
 package com.cms.megaprint.controller.endpoint.page;
 
 import com.cms.megaprint.model.CommonValue;
+import com.cms.megaprint.model.Description;
 import com.cms.megaprint.model.Goods;
 import com.cms.megaprint.service.common.TextDecoratorService;
 import com.cms.megaprint.service.intface.CommonValueService;
 import com.cms.megaprint.service.intface.GoodsService;
-import lombok.AllArgsConstructor;
-import lombok.Data;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,13 +26,6 @@ public class GoodsAdminController {
         this.textDecoratorService = textDecoratorService;
     }
 
-    @Data
-    @AllArgsConstructor
-    private class Description {
-        private String shortDescription;
-        private String fullDescription;
-    }
-
     @RequestMapping("admin_goods")
     public String goods(Model model) {
 
@@ -47,7 +39,7 @@ public class GoodsAdminController {
         for (Goods goods: goodsService.findAll()) {
             goodsDescription.put(
                     goods.getId(),
-                    new Description(
+                    Description.of(
                             textDecoratorService.decorate(goods.getShortDescription()),
                             textDecoratorService.decorate(goods.getFullDescription())
                     )
