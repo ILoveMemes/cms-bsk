@@ -308,18 +308,43 @@
                         <p><img src="images/location.png" alt="icon 1" />Воронежская обл., г. Борисоглебск, ул. Карла Маркса, 76</p>
                         <p><img src="images/phone1.png"  alt="icon 2" /><span th:utext="${top_phone}"></span></p>
                         <p><img src="images/globe.png" alt="icon 3" /><a class="link_orange" href="http://www.megaprintbsk.ru/"><span class="txt_orange">www.megaprintbsk.ru</span></a></p>
-                        <form class="form-horizontal" action="#">
+                        <div class="form-horizontal">
                             <div class="form-group">
-                                <input type="email" class="form-control" placeholder="Ваше имя..." maxlength="40" />
+                                <input id="senderName" type="text" class="form-control" placeholder="Ваше имя..." maxlength="40" />
                             </div>
                             <div class="form-group">
-                                <input type="email" class="form-control" placeholder="Ваш Email..." maxlength="40" />
+                                <input id="senderEmail" type="email" class="form-control" placeholder="Ваш Email..." maxlength="40" />
                             </div>
                             <div class="form-group">
-                                <textarea  class="form-control" style="height: 130px;" placeholder="Напишите здесь ваше сообщение..."></textarea>
+                                <textarea  id="text" class="form-control" style="height: 130px;" placeholder="Напишите здесь ваше сообщение..."></textarea>
                             </div>
-                            <button type="submit" class="btn btn-orange pull-right">ОТПРАВИТЬ</button>
-                        </form>
+                            <button id="sendMessage" onclick="sendMessage();" class="btn btn-orange pull-right">ОТПРАВИТЬ</button>
+                        </div>
+                        <script th:inline="javascript">
+                            function sendMessage() {
+                                let requestBody = {
+                                    senderName: $('#senderName').val(),
+                                    senderEmail: $('#senderEmail').val(),
+                                    text: $('#text').val()
+                                };
+                                fetch('/send_message', {
+                                    method: 'POST',
+                                    body: JSON.stringify(requestBody),
+                                    headers: {
+                                        'Content-Type': 'application/json'
+                                    }
+                                })
+                                .then(response => {
+                                    response.json().then(r => {
+                                        if (r) {
+                                            anyTextMessage('', 'Ваше сообщение принято', '/images/good.png');
+                                        } else {
+                                            anyTextMessage('Ошибка', 'Ошибка при отправке сообщения. Попробуйте позже.', '/images/error.png');
+                                        }
+                                    });
+                                });
+                            }
+                        </script>
                         	
                     </div>
                 </div><!-- /.row -->
@@ -411,6 +436,44 @@
                     // show popup window
                     $('#modalGoodsFull').modal();
                 }
+            }
+        </script>
+
+        <!-- Modal any text message -->
+        <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalLabel"></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <ul class="list-inline">
+                            <li class="col-md-4">
+                                <img class="img-responsive" src="images/blank_image.png" id="modalIcon"
+                                     width="64" height="64" alt="message icon" />
+                            </li>
+                            <li class="col-md-8">
+                                <h4 id="modalText"></h4>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script th:inline="javascript">
+            function anyTextMessage(label, text, icon) {
+                $('#modalLabel').html(label);
+                $('#modalText').html(text);
+                let picture = document.getElementById('modalIcon');
+                picture.src = icon;
+                $('#modal').modal();
             }
         </script>
 
