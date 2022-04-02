@@ -51,10 +51,10 @@ public class IndexController {
         model.addAttribute("serviceCategories", serviceCategoryService.findAllThatShowOnMain());
         model.addAttribute("teammates", teammateService.findAll());
 
-        model.addAttribute("goods", goodsService.findAll());
+        model.addAttribute("goods", goodsService.findAllThatShowOnMain());
 
         Map<Long, Description> goodsDescription = new HashMap<>();
-        for (Goods goods: goodsService.findAll()) {
+        for (Goods goods: goodsService.findAllThatShowOnMain()) {
             goodsDescription.put(
                     goods.getId(),
                     Description.of(
