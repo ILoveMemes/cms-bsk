@@ -30,8 +30,8 @@ public class GoodsAdminController {
     @Data
     @AllArgsConstructor
     private class Description {
-        private String shrt;
-        private String full;
+        private String shortDescription;
+        private String fullDescription;
     }
 
     @RequestMapping("admin_goods")

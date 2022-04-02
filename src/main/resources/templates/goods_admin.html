@@ -106,9 +106,10 @@
                                     <span class="label-orange" th:text="${goodsEntity.price}"></span>
                                 </div>
                                 <div class="clearfix"> </div>
-                                <p class="blog_text">
-                                    <span th:utext="${goodsFormattedDescription[goodsEntity.id].shrt}"></span>
+                                <div class="blog_text">
+                                    <span th:utext="${goodsFormattedDescription[goodsEntity.id].shortDescription}"></span>
                                     <a class="link_orange" href="#"><span class="txt_orange">Подробнее</span></a>
+                                </div>
                             </li>
                         </ul>
                     </div>
