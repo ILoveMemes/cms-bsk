@@ -9,13 +9,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class ServiceController {
+public class ServiceGuestController {
 
     private final CommonValueService commonValueService;
     private final TextDecoratorService textDecoratorService;
     private final ServiceCategoryService serviceCategoryService;
 
-    public ServiceController(CommonValueService commonValueService, TextDecoratorService textDecoratorService, ServiceCategoryService serviceCategoryService) {
+    public ServiceGuestController(CommonValueService commonValueService, TextDecoratorService textDecoratorService, ServiceCategoryService serviceCategoryService) {
         this.commonValueService = commonValueService;
         this.textDecoratorService = textDecoratorService;
         this.serviceCategoryService = serviceCategoryService;
