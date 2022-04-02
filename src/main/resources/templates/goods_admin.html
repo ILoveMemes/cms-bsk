@@ -108,7 +108,9 @@
                                 <div class="clearfix"> </div>
                                 <div class="blog_text">
                                     <span th:utext="${goodsFormattedDescription[goodsEntity.id].shortDescription}"></span>
-                                    <a class="link_orange" href="#"><span class="txt_orange">Подробнее</span></a>
+                                    <a class="link_orange" th:onclick="'showGoodsFullDescription(' + ${goodsEntity.id} + ');'">
+                                        <span class="txt_orange">Подробнее</span>
+                                    </a>
                                 </div>
                             </li>
                         </ul>
@@ -152,6 +154,70 @@
         <script src="js/templatemo_script.js"  type="text/javascript"></script>
         <script src="js/goods_modaledit.js"  type="text/javascript"></script>
         <script src="js/modaledit.js"  type="text/javascript"></script>
+
+        <!-- Modal for Goods full description view -->
+        <div class="modal fade" id="modalGoodsFull" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalGoodsFullLabel">Подробности</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <ul class="list-inline">
+                            <li class="col-md-4"><a href="#">
+                                <img class="img-responsive" src="images/blank_image.png" id="modalGoodsFullPicture"
+                                     width="150" height="150" alt="goods photo" /></a>
+                            </li>
+                            <li class="col-md-8">
+                                <div class="pull-left">
+                                    <span class="blog_header" id="modalGoodsFullTitle"></span>
+                                    <br/>
+                                    <img src="images/edit.png" width="24" height="24" alt="edit"
+                                         id="modalGoodsFullEditButton"/>
+                                    <img src="images/delete.png" width="24" height="24" alt="delete"
+                                         id="modalGoodsFullDeleteButton"/>
+                                </div>
+                                <div class="">
+                                    <span class="label-orange" id="modalGoodsFullPrice"></span>
+                                </div>
+                                <div class="clearfix"> </div>
+                                <div class="blog_text">
+                                    <span id="modalGoodsFullFullDescription"></span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script th:inline="javascript">
+            function showGoodsFullDescription(goodsId) {
+                let goods = /*[[${goods}]]*/ null;
+                let goodsFormattedDescription = /*[[${goodsFormattedDescription}]]*/ null;
+                let goodsEntity = goods.find(obj => obj.id === goodsId);
+                if (goodsEntity != null) {
+                    $('#modalGoodsFullTitle').html(goodsEntity?.title);
+                    $('#modalGoodsFullPrice').html(goodsEntity?.price);
+                    let picture = document.getElementById('modalGoodsFullPicture');
+                    picture.src = '/p/' + goodsEntity?.imageId;
+                    $('#modalGoodsFullFullDescription').html(goodsFormattedDescription[goodsEntity.id].fullDescription);
+                    // edit buttons action binding
+                    $('#modalGoodsFullEditButton').unbind();
+                    $('#modalGoodsFullEditButton').click(() => showModalGoods(goodsId));
+                    $('#modalGoodsFullDeleteButton').unbind();
+                    $('#modalGoodsFullDeleteButton').click(() => deleteGoods(goodsId));
+                    // show popup window
+                    $('#modalGoodsFull').modal();
+                }
+            }
+        </script>
 
         <!-- Modal for Goods -->
         <div class="modal fade" id="modalGoods" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
