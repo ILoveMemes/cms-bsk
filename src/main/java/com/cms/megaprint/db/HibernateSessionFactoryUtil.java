@@ -43,6 +43,7 @@ public class HibernateSessionFactoryUtil {
             configuration.addAnnotatedClass(ServiceCategory.class);
             configuration.addAnnotatedClass(Teammate.class);
             configuration.addAnnotatedClass(TeammatesSocialNetwork.class);
+            configuration.addAnnotatedClass(Goods.class);
 
             StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties());
             sessionFactory = configuration.buildSessionFactory(builder.build());
