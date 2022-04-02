@@ -1,4 +1,4 @@
-package com.cms.megaprint.controller.endpoint;
+package com.cms.megaprint.controller.endpoint.addon;
 
 import com.cms.megaprint.service.common.TextDecoratorService;
 import org.springframework.stereotype.Controller;

@@ -1,4 +1,4 @@
-package com.cms.megaprint.controller.endpoint;
+package com.cms.megaprint.controller.endpoint.crud;
 
 import com.cms.megaprint.controller.common.CrudController;
 import com.cms.megaprint.model.ServiceCategory;

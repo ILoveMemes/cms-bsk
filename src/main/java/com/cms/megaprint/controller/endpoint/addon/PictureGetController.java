@@ -1,4 +1,4 @@
-package com.cms.megaprint.controller.endpoint;
+package com.cms.megaprint.controller.endpoint.addon;
 
 import com.cms.megaprint.model.Picture;
 import com.cms.megaprint.service.intface.PictureService;
