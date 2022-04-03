@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <title th:text="${site_caption}">Index</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" th:href="@{/p/{id}(id = ${favicon})}">
+
+    <!-- Google Web Font Embed -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic'
+          rel='stylesheet' type='text/css'>
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&apikey=de52f4a5-e074-425f-b600-fc8a725c1e8e"
+            type="text/javascript"></script>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.css" rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="js/colorbox/colorbox.css" rel='stylesheet' type='text/css'>
+    <link href="css/templatemo_style.css" rel='stylesheet' type='text/css'>
+    <link href="css/message.css" rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+<div class="templatemo-top-bar" id="templatemo-top">
+    <div class="container">
+        <div class="subheader">
+            <div id="phone" class="pull-left">
+                <span class="head-mod">Сообщения</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="templatemo-blog">
+    <div class="container">
+        <div class="row">
+            <div style="margin-top: 20px;" class="col-sm-12 col-md-12 col-lg-12">
+                <ul class="list-inline">
+                    <li class="top-menu-button" onclick="location.href = 'admin_messages';">Назад к списку сообщений
+                    </li>
+                </ul>
+                <hr>
+            </div>
+        </div>
+
+        <div class="blog_box">
+            <div id="msgContainer">
+                <div class="row msg-view">
+                    <div class="col-lg-8 col-md-6 col-sm-12 msg-text">
+                        <div th:utext="${message.text}"></div>
+                        <div class="blank-space"></div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <div><b>Отправитель:</b></div>
+                        <hr>
+                        <div th:text="${message.senderName}"></div>
+                        <div th:text="${message.senderEmail}"></div>
+                        <div th:text="${#temporals.format(message.sendingTime, 'dd.MM.yyyy HH:mm')}"></div>
+                        <div class="blank-space"></div>
+                        <div id="markAsUnread" class="small-button" th:onclick="'actionMarkAsUnread(' + ${message.id} + ');'"
+                             th:attrappend="class= ${!message.unread} ? ' visible' : ' invisible'">
+                            <img src="images/mail-orange.png">
+                            <span>Отметить как непрочитанное</span>
+                        </div>
+                        <div id="markAsRead" class="small-button" th:onclick="'actionMarkAsRead(' + ${message.id} + ');'"
+                             th:attrappend="class= ${message.unread} ? ' visible' : ' invisible'">
+                            <img src="images/mail-gray.png">
+                            <span>Отметить как прочитанное</span>
+                        </div>
+                        <div id="markAsSpecial" class="small-button" th:onclick="'actionMarkAsSpecial(' + ${message.id} + ');'"
+                             th:attrappend="class= ${!message.marked} ? ' visible' : ' invisible'">
+                            <img src="images/flag-orange.png">
+                            <span>Специальная отметка</span>
+                        </div>
+                        <div id="markAsRegular" class="small-button" th:onclick="'actionMarkAsRegular(' + ${message.id} + ');'"
+                             th:attrappend="class= ${message.marked} ? ' visible' : ' invisible'">
+                            <img src="images/flag-gray.png">
+                            <span>Снять специальную отметку</span>
+                        </div>
+                        <div id="markAsArchive" class="small-button" th:onclick="'actionMarkAsArchive(' + ${message.id} + ');'"
+                             th:attrappend="class= ${!message.archived} ? ' visible' : ' invisible'">
+                            <img src="images/trash-orange.png">
+                            <span>В архив</span>
+                        </div>
+                        <div id="markAsNotArchive" class="small-button" th:onclick="'actionMarkAsNotArchive(' + ${message.id} + ');'"
+                             th:attrappend="class= ${message.archived} ? ' visible' : ' invisible'">
+                            <img src="images/trash-gray.png">
+                            <span>Из архива</span>
+                        </div>
+                        <div id="delete" class="small-button" th:onclick="'deleteMessage(' + ${message.id} + ');'"
+                             th:attrappend="class= ${message.archived} ? ' visible' : ' invisible'">
+                            <img src="images/delete.png">
+                            <span>Стереть</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="templatemo_clear"></div>
+
+        </div>
+    </div>
+</div>
+
+<script src="js/jquery.min.js" type="text/javascript"></script>
+<script src="js/bootstrap.min.js" type="text/javascript"></script>
+<script src="js/stickUp.min.js" type="text/javascript"></script>
+<script src="js/colorbox/jquery.colorbox-min.js" type="text/javascript"></script>
+<script src="js/templatemo_script.js" type="text/javascript"></script>
+<script src="js/modaledit.js" type="text/javascript"></script>
+<script src="js/message.js" type="text/javascript"></script>
+
+<!-- modal windows for picture management -->
+<th:block th:include="picture_modal::pick_and_upload"></th:block>
+</body>
+</html>
