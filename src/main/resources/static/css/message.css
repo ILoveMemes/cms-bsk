@@ -7,6 +7,8 @@ body {
 }
 
 .top-menu-button {
+    margin: 3px 3px;
+    padding: 5px 10px;
     cursor: pointer;
 }
 
