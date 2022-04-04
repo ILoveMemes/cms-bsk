@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Tooltip</title>
+</head>
+<body>
+<th:block th:fragment="floattip">
+    <div id="floatTip"></div>
+    <script th:inline="javascript">
+        function makeTipHandler() {
+            let visible = false;
+            let justShown = false; // hotfix cuz of click handling order
+            floatTipStyle = document.getElementById("floatTip").style;
+            let moveTip = function(e) {
+                w = 250;
+                // Для браузера IE6-8
+                if (document.all)  {
+                    x = e.clientX + document.body.scrollLeft;
+                    y = e.clientY + document.body.scrollTop;
+                } else {
+                    // Для остальных браузеров
+                    x = e.pageX;
+                    y = e.pageY;
+                }
+                if ((x + w + 10) < document.body.clientWidth) {
+                    floatTipStyle.left = x + 'px';
+                } else {
+                    floatTipStyle.left = x - w + 'px';
+                }
+                floatTipStyle.top = y + 20 + 'px';
+                if (!justShown) {
+                    if (visible) {
+                        floatTipStyle.display = "none";
+                        visible = false;
+                    }
+                } else {
+                    justShown = false;
+                }
+            }
+
+            document.onclick = moveTip;
+
+            return (message) => {
+                if (message) {
+                    document.getElementById("floatTip").innerHTML = message;
+                    floatTipStyle.display = "block";
+                    visible = true;
+                    justShown = true;
+                } else {
+                    floatTipStyle.display = "none";
+                    visible = false;
+                    justShown = false;
+                }
+            }
+        }
+        var tipHandler = makeTipHandler();
+        // addon
+        function showMDTip() {
+            tipHandler(`
+                @@<span class="txt_orange">выделение текста оранжевым цветом</span>@@<br>
+                ##<u>подчеркнутый текст</u>##<br>
+                **<b>полужирный текст</b>**<br>
+                __<i>текст курсивом</i>__<br>
+                * элемент списка => <br>  <ul><li>элемент списка</li></ul>
+                ![<a>http://link</a>>](текст ссылки)<br>
+                Текст разделяется на строки согласно расставленым переносам (enter)
+            `);
+        }
+    </script>
+</th:block>
+
+</body>
+</html>

@@ -123,3 +123,17 @@ body {
     padding: 3px 7px;
     border-radius: 5px!important;
 }
+
+#floatTip {
+     position: absolute;
+     width: 250px;
+     display: none;
+     border: 1px solid #000;
+     padding: 4px;
+     font-family: sans-serif;
+     font-size: 9pt;
+     color: #333;
+     z-index: 9000;
+     background: #ffffff;
+     transition: 0.1s;
+}
