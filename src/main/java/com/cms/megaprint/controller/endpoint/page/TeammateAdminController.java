@@ -24,7 +24,7 @@ public class TeammateAdminController {
         this.teammateSocialNetworkService = teammateSocialNetworkService;
     }
 
-    @RequestMapping("admin_teammate")
+    @RequestMapping("admin/teammate")
     public String teammate(Model model) {
 
         for (CommonValue cValue: commonValueService.findAll()) {
@@ -32,7 +32,7 @@ public class TeammateAdminController {
         }
 
         model.addAttribute("teammates", teammateService.findAll());
-        return "teammate_admin";
+        return "admin/teammate";
 
     }
 

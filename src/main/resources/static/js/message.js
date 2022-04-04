@@ -21,21 +21,21 @@ function showMessages(condition) {
                 row.root.classList.add('odd-row');
             }
             rowCounter++;
-            row.root.onclick = () => {location.href = '/admin_single_message?id=' + msg.id;};
+            row.root.onclick = () => {location.href = '/admin/single_message?id=' + msg.id;};
             row.time.innerHTML = new Date(msg.sendingTime).format('dd.mm.yyyy HH:MM');
             row.name.innerHTML = msg.senderName;
             row.email.innerHTML = msg.senderEmail;
             let readMark = createMarks(row.marks);
             if (msg.unread) {
-                readMark.src = 'images/mail-orange.png';
+                readMark.src = './../images/mail-orange.png';
             } else {
-                readMark.src = 'images/mail-gray.png';
+                readMark.src = './../images/mail-gray.png';
             }
             let flagMark = createMarks(row.marks);
             if (msg.marked) {
-                flagMark.src = 'images/flag-orange.png';
+                flagMark.src = './../images/flag-orange.png';
             } else {
-                flagMark.src = 'images/flag-gray.png';
+                flagMark.src = './../images/flag-gray.png';
             }
         }
     }

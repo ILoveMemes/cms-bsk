@@ -37,7 +37,7 @@ function showModalTeammate(teammateId) {
         $('#modalTeammate').modal();
     } else {
         // add a new teammate
-        picture.src = 'images/blank_image.png';
+        picture.src = './../images/blank_image.png';
         $('#modalTeammateName').val('');
         $('#modalTeammatePosition').val('');
         $('#modalTeammateApply').unbind();
@@ -91,7 +91,7 @@ function showModalTeammateSN(tsnId, tId) {
             });
         $('#modalTeammateSN').modal();
     } else {
-        picture.src = 'images/blank_image.png';
+        picture.src = './../images/blank_image.png';
         $('#modalTeammateSNLink').val('');
         $('#modalTeammateSNApply').unbind();
         $('#modalTeammateSNApply').click(() => {

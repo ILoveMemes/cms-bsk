@@ -26,7 +26,7 @@ public class GoodsAdminController {
         this.textDecoratorService = textDecoratorService;
     }
 
-    @RequestMapping("admin_goods")
+    @RequestMapping("admin/goods")
     public String goods(Model model) {
 
         for (CommonValue cValue: commonValueService.findAll()) {
@@ -48,7 +48,7 @@ public class GoodsAdminController {
 
         model.addAttribute("goodsFormattedDescription", goodsDescription);
 
-        return "goods_admin";
+        return "admin/goods";
     }
 
 }

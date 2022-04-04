@@ -6,7 +6,7 @@
 </head>
 <body>
 <th:block th:fragment="pick_and_upload">
-    <script src="js/picture_modal.js" type="text/javascript"></script>
+    <script src="./../js/picture_modal.js" type="text/javascript"></script>
     <!-- Modal picture pick dialog -->
     <div class="modal fade" id="modalPicPickDialog" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
          aria-hidden="true">
@@ -47,7 +47,7 @@
                     <input type="file" name="image" accept="image/png, image/jpeg" id="modalPicUploadInput"/>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal"><!--onclick="dismissUpload();"-->Отмена</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
                     <button type="button" class="btn btn-primary" id="modalPicUploadDialogApply">Загрузить</button>
                 </div>
             </div>

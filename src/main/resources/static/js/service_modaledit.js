@@ -104,7 +104,7 @@ function showModalServiceCategory(categoryId) {
         $('#modalServiceCategory').modal();
     } else {
         // add a new category
-        picture.src = 'images/blank_image.png';
+        picture.src = './../images/blank_image.png';
         $('#modalServiceCategoryTitle').val('');
         $('#modalServiceCategoryApply').click(() => {
             let _title = $('#modalServiceCategoryTitle').val();

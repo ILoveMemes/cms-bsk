@@ -27,7 +27,7 @@ public class ServiceAdminController {
         this.serviceUnitService = serviceUnitService;
     }
 
-    @RequestMapping("admin_service")
+    @RequestMapping("admin/service")
     public String service(Model model) {
 
         for (CommonValue cValue: commonValueService.findAll()) {
@@ -40,7 +40,7 @@ public class ServiceAdminController {
         model.addAttribute("unitsWithoutCategories", units);
         model.addAttribute("serviceCategories", serviceCategoryService.findAll());
 
-        return "service_admin";
+        return "admin/service";
 
     }
 

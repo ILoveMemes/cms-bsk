@@ -66,7 +66,7 @@ public class IndexController {
 
         model.addAttribute("goodsFormattedDescription", goodsDescription);
 
-        return "testIndex";
+        return "public/index";
     }
 
 }

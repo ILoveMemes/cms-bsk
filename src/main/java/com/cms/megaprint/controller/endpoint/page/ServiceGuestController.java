@@ -30,7 +30,7 @@ public class ServiceGuestController {
 
         model.addAttribute("serviceCategories", serviceCategoryService.findAll());
 
-        return "service";
+        return "public/service";
     }
 
 }

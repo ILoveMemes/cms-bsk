@@ -64,7 +64,7 @@ function showModalGoods(goodsId) {
 
         $('#modalGoodsTitle').val('');
         $('#modalGoodsPrice').val('');
-        picture.src = 'images/blank_image.png';
+        picture.src = './../images/blank_image.png';
         $('#modalGoodsShowOnMain').prop('checked', true);
         $('#modalGoodsShortDescription').val('');
         $('#modalGoodsFullDescription').val('');

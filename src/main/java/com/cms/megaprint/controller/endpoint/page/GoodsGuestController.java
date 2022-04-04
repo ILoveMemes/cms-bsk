@@ -48,6 +48,6 @@ public class GoodsGuestController {
 
         model.addAttribute("goodsFormattedDescription", goodsDescription);
 
-        return "goods";
+        return "public/goods";
     }
 }

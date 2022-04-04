@@ -16,7 +16,7 @@ public class SingleMessageAdminController {
         this.messageService = messageService;
     }
 
-    @RequestMapping("/admin_single_message")
+    @RequestMapping("/admin/single_message")
     public String message(Model model, @RequestParam Long id) {
         Message requiredMessage = messageService.findById(id).orElseThrow(NotFoundException::new);
         if (requiredMessage.isUnread()) {
@@ -24,7 +24,7 @@ public class SingleMessageAdminController {
             requiredMessage = messageService.update(requiredMessage);
         }
         model.addAttribute("message", requiredMessage);
-        return "single_message_admin";
+        return "admin/single_message";
     }
 
     @GetMapping("/asm/markAsRead/{id}")

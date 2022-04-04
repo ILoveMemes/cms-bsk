@@ -15,8 +15,7 @@ public class AdminController {
         this.commonValueService = commonValueService;
     }
 
-    // temporary path - admin2
-    @RequestMapping("/admin2")
+    @RequestMapping("/admin")
     public String admin(Model model) {
 
         for (CommonValue cValue: commonValueService.findAll()) {
@@ -35,7 +34,7 @@ public class AdminController {
         // три колонки в index.html
 
         model.addAttribute("text", "Hello, World!");*/
-        return "index_admin";
+        return "admin/index";
     }
 
 }
