@@ -41,6 +41,10 @@ function showMessages(condition) {
     }
 }
 
+function getUnreadMessageCount() {
+    return MESSAGES.filter(msg => msg.unread).length;
+}
+
 function createRowAndAttach(root) {
     let createElement = function (subroot) {
         let element = document.createElement('div');

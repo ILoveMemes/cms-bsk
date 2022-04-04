@@ -57,7 +57,11 @@
         </div>
         <div class="row">
             <div class="col-12 col-sm-12 sol-md-4 col-lg-4">
-                <div class="top-menu-button" onclick="location.href='/admin/messages'">Сообщения формы обратной связи</div>
+                <div class="top-menu-button" onclick="location.href='/admin/messages'">
+                    Сообщения формы обратной связи
+                    <span th:if="${unreadMessageCount > 0}" th:text="${unreadMessageCount}"
+                        class="unread-message-count"></span>
+                </div>
             </div>
         </div>
         <div class="row">

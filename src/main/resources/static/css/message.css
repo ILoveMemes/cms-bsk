@@ -117,3 +117,9 @@ body {
 .visible {
     display: inherit;
 }
+
+.unread-message-count {
+    background: #f3c5c5;
+    padding: 3px 7px;
+    border-radius: 5px!important;
+}

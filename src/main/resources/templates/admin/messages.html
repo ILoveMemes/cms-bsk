@@ -49,7 +49,10 @@
                     <div style="margin-top: 20px;" class="col-sm-12 col-md-12 col-lg-12">
                         <ul class="list-inline">
                             <li class="top-menu-button" onclick="showMessages(msg => !msg.archived);">Все сообщения</li>
-                            <li class="top-menu-button" onclick="showMessages(msg => msg.unread);">Непрочитанные</li>
+                            <li class="top-menu-button" onclick="showMessages(msg => msg.unread);">
+                                Непрочитанные
+                                <span id="unreadMessageCount" class="unread-message-count invisible"></span>
+                            </li>
                             <li class="top-menu-button" onclick="showMessages(msg => msg.marked);">Отмеченные</li>
                             <li class="top-menu-button" onclick="showMessages(msg => msg.archived);">Архивные</li>
                         </ul>
@@ -79,6 +82,8 @@
 
         <script th:inline="javascript">
             showMessages(msg => !msg.archived);
+            switchVisibility(document.querySelector('#unreadMessageCount'), getUnreadMessageCount() > 0);
+            document.querySelector('#unreadMessageCount').innerHTML = getUnreadMessageCount();
         </script>
 
         <!-- modal windows for picture management -->
