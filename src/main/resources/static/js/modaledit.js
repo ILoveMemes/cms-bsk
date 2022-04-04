@@ -89,17 +89,25 @@ function updateDoc() {
         if (e.element.tagName == 'IMG') {
             e.element.src = '/p/' + commonValues.get(e.key);
         } else {
-            var request = new XMLHttpRequest();
-            request.open("POST", '/decorate', true);
-            request.setRequestHeader('Content-type', 'application/json');
-            request.send(commonValues.get(e.key));
-            request.onreadystatechange = function() {
-                if (request.response == null) {
-                    e.element.innerHTML = '(пусто)';
-                } else {
-                    e.element.innerHTML = request.response;
-                }
-            };
+            if (commonValues.get(e.key) == null) {
+                e.element.innerHTML = '<i>(пусто)</i>';
+            } else {
+                fetch('/decorate', {
+                    method: 'POST',
+                    body: JSON.stringify(commonValues.get(e.key)),
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                }).then(response => {
+                    return response.json();
+                }).then(jsonResponse => {
+                    if (jsonResponse == null) {
+                        e.element.innerHTML = '<i>( пусто )</i>';
+                    } else {
+                        e.element.innerHTML = jsonResponse;
+                    }
+                });
+            }
         }
     });
 }
