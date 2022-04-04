@@ -17,6 +17,11 @@ body {
     transition: 0.1s;
 }
 
+.top-menu-button img {
+    width: 22px;
+    height: 22px;
+}
+
 .msg-row {
     margin: 5px;
     cursor: pointer;
@@ -68,7 +73,7 @@ body {
 }
 
 .inline-button-orange:hover {
-    background: #919191;
+    background: #D35400;
     transition: 0.1s;
 }
 
