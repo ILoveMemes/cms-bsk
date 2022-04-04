@@ -15,21 +15,37 @@ function modalApplyHandler(dataId) {
 }
 
 function updateDataOnServer(dataId) {
-    var xmlHttp = new XMLHttpRequest();
-    xmlHttp.onreadystatechange = function() {
-        if (xmlHttp.readyState == XMLHttpRequest.DONE && xmlHttp.status == 200) {
-            var resp = JSON.parse(xmlHttp.response);
-            if (resp != null) {
-                var updateRequest = new XMLHttpRequest();
-                resp.value = commonValues.get(dataId);
-                updateRequest.open("POST", '/val/update', true);
-                updateRequest.setRequestHeader('Content-type', 'application/json');
-                updateRequest.send(JSON.stringify(resp));
+    fetch('/val/findByKey/' + dataId)
+        .then(response => {
+            if (response.status === 404) {
+                // there is no such data on db, so make a new one
+                let req = {
+                    description: '',
+                    key: dataId,
+                    value: commonValues.get(dataId)
+                };
+                fetch('/val/save', {
+                    method: 'POST',
+                    body: JSON.stringify(req),
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
             }
-        }
-    }
-    xmlHttp.open("GET", '/val/findByKey/' + dataId, true);
-    xmlHttp.send(null);
+            if (response.status === 200) {
+                // if this key is exist - just update data on db
+                response.json().then(r => {
+                    r.value = commonValues.get(dataId);
+                    fetch('/val/update', {
+                        method: 'POST',
+                        body: JSON.stringify(r),
+                        headers: {
+                            'Content-Type': 'application/json'
+                        }
+                    });
+                });
+            }
+        });
 }
 
 function pickThElements() {
