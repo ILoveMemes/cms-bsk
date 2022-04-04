@@ -757,6 +757,10 @@ ul.templatemo-project-gallery  li  a img:hover {
 	}
 }
 
+.editable {
+    cursor: pointer;
+}
+
 .editable:hover {
     background: #aaa;
 }
