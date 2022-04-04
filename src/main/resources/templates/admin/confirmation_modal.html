@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Confirmation Modal</title>
+</head>
+<body>
+<th:block th:fragment="confirm">
+    <!-- Modal Confirmation Dialog -->
+    <div class="modal fade" id="modalConfirmDialog" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalConfirmDialogLabel"></h5>
+                </div>
+                <div class="modal-body">
+                    <div class="modal-list-container" id="modalConfirmDialogText"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" id="modalConfirmDialogNo">No</button>
+                    <button type="button" class="btn btn-primary" id="modalConfirmDialogYes">Yes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./../js/confirmation_modal.js" type="text/javascript"></script>
+</th:block>
+
+</body>
+</html>
