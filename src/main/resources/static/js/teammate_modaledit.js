@@ -112,9 +112,11 @@ function showModalTeammateSN(tsnId, tId) {
 }
 
 function deleteTeammateSN(tsnId) {
-    fetch('/teammates_social_network/deleteById/' + tsnId).then(response => window.location.reload());
+    confirm('Вы действительно хотите удалить данную ссылку?', () =>
+        fetch('/teammates_social_network/deleteById/' + tsnId).then(response => window.location.reload()));
 }
 
 function deleteTeammate(tId) {
-    fetch('/teammates/deleteById/' + tId).then(response => window.location.reload());
+    confirm('Вы действительно хотите удалить данного сотрудника?', () =>
+        fetch('/teammates/deleteById/' + tId).then(response => window.location.reload()));
 }

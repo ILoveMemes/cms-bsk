@@ -75,5 +75,6 @@ function showModalGoods(goodsId) {
 }
 
 function deleteGoods(goodsId) {
-    fetch('/goods/deleteById/' + goodsId).then(response => window.location.reload());
+    confirm('Вы действительно хотите удалить данный товар?',
+        () => fetch('/goods/deleteById/' + goodsId).then(response => window.location.reload()));
 }

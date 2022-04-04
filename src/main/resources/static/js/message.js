@@ -4,7 +4,6 @@ function showMessages(condition) {
     }
     let createMarks = function(r) {
         let m = document.createElement('img');
-        //m.src = 'images/email.png';
         r.appendChild(m);
         return m;
     }
@@ -48,7 +47,6 @@ function getUnreadMessageCount() {
 function createRowAndAttach(root) {
     let createElement = function (subroot) {
         let element = document.createElement('div');
-        //element.className = 'col-sm-12 col-md-6 col-lg-3';
         subroot.appendChild(element);
         return element;
     }
@@ -107,8 +105,10 @@ function actionMarkAsNotArchive(msgId) {
 }
 
 function deleteMessage(msgId) {
-    fetch('/messages/deleteById/' + msgId);
-    location.href = '/admin_messages';
+    confirm('Вы действительно хотите безвозвратно удалить это сообщение?', () => {
+        fetch('/messages/deleteById/' + msgId)
+            .then(response => location.href = '/admin/messages');
+    });
 }
 
 function switchVisibility(element, visibility) {

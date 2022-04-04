@@ -124,9 +124,11 @@ function showModalServiceCategory(categoryId) {
 }
 
 function deleteServiceUnit(suId) {
-    fetch('/service_units/deleteById/' + suId).then(response => window.location.reload());
+    confirm('Вы действительно хотите удалить данную услугу?', () =>
+        fetch('/service_units/deleteById/' + suId).then(response => window.location.reload()));
 }
 
 function deleteServiceCategory(scId) {
-    fetch('/service_categories/deleteById/' + scId).then(response => window.location.reload());
+    confirm('Вы действительно хотите удалить данную категорию?', () =>
+        fetch('/service_categories/deleteById/' + scId).then(response => window.location.reload()));
 }
