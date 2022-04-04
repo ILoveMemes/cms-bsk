@@ -1,14 +1,10 @@
-
 CREDITS
 
+Small CMS (for Megaprint)
 
-Urbanic HTML5 Template
+Created by https://github.com/ILoveMemes
 
+Based on "Urbanic HTML5 Template"
 https://templatemo.com/tm-395-urbanic
 
-
-
 Photos by https://unsplash.com
-
-
-Enjoy!
