@@ -1,6 +1,7 @@
 package com.cms.megaprint.controller.endpoint.crud;
 
 import com.cms.megaprint.controller.common.CrudController;
+import com.cms.megaprint.exception.NotFoundException;
 import com.cms.megaprint.model.CommonValue;
 import com.cms.megaprint.service.intface.CommonValueService;
 import org.springframework.web.bind.annotation.*;
@@ -17,8 +18,7 @@ public class CommonValueController extends CrudController<CommonValue, Long> {
 
     @GetMapping("/findByKey/{key}")
     public @ResponseBody CommonValue findByKey(@PathVariable String key) {
-        Optional<CommonValue> val = ((CommonValueService) service).findByKey(key);
-        return val.orElse(null);
+        return ((CommonValueService) service).findByKey(key).orElseThrow(NotFoundException::new);
     }
 
 }
