@@ -16,7 +16,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests().antMatchers("/").anonymous()
                 .and().authorizeRequests().antMatchers(
-                "/admin").authenticated()
+                "/admin2").authenticated()
+                .antMatchers("/admin2/*").authenticated()
+                /*
+                    temporary deactivated
+                    need to include all crud endpoints
+                */
                 .and().formLogin()
                 .loginPage("/login")
                 .permitAll()
