@@ -60,6 +60,27 @@ body {
     margin: 3px;
 }
 
+.inline-button-orange {
+    cursor: pointer;
+    background: #FF7500;
+    margin: 5px 10px;
+    padding: 5px 10px;
+}
+
+.inline-button-orange:hover {
+    background: #919191;
+    transition: 0.1s;
+}
+
+.inline-button-orange img {
+    width: 22px;
+    height: 22px;
+}
+
+.inline-button-orange span {
+    margin: 5px 7px;
+}
+
 .blank-space {
     margin-top: 25px;
 }
