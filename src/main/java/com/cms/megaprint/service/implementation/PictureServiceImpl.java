@@ -6,6 +6,8 @@ import com.cms.megaprint.repository.intface.PictureRepository;
 import com.cms.megaprint.service.intface.PictureService;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class PictureServiceImpl extends DefaultServiceImpl<Picture, Long> implements PictureService {
 
@@ -13,4 +15,8 @@ public class PictureServiceImpl extends DefaultServiceImpl<Picture, Long> implem
         super(repo);
     }
 
+    @Override
+    public List<Long> getIdList() {
+        return ((PictureRepository)repo).getIdList();
+    }
 }

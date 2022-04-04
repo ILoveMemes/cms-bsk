@@ -35,7 +35,7 @@ public class PictureController extends CrudController<Picture, Long> {
 
     @GetMapping("/idList")
     public @ResponseBody List<Long> getIdList() {
-        return service.findAll().stream().map(Picture::getId).collect(Collectors.toList());
+        return ((PictureService)service).getIdList();
     }
 
 }
