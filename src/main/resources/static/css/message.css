@@ -31,6 +31,16 @@ body {
     background: #ffffff;
 }
 
+.hover-highlight {
+    background: inherit;
+    transition: 0.2s;
+}
+
+.hover-highlight:hover {
+    background: #FFCAA3;
+    transition: 0.2s;
+}
+
 .even-row {
     background: #f0f0f0;
 }
