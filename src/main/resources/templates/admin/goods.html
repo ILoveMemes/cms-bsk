@@ -183,9 +183,9 @@
                         <input id="modalGoodsPrice" class="modal-text-edit" type="text"/>
                         <input id="modalGoodsShowOnMain" type="checkbox"/>
                         <label for="modalGoodsShowOnMain">Отображать на главной</label>
-                        <div>Краткое описание</div>
+                        <div>Краткое описание <a onclick="showMDTip()">(возможности по оформлению текста)</a></div>
                         <textarea id="modalGoodsShortDescription" class="modal-text-edit" oninput="autoGrow(this);"></textarea>
-                        <div>Полное описание</div>
+                        <div>Полное описание <a onclick="showMDTip()">(возможности по оформлению текста)</a></div>
                         <textarea id="modalGoodsFullDescription" class="modal-text-edit" oninput="autoGrow(this);"></textarea>
                     </div>
                     <div class="modal-footer">
@@ -198,5 +198,6 @@
 
         <th:block th:include="admin/picture_modal::pick_and_upload"></th:block>
         <th:block th:include="admin/confirmation_modal::confirm"></th:block>
+        <th:block th:include="admin/tooltip::floattip"></th:block>
     </body>
 </html>

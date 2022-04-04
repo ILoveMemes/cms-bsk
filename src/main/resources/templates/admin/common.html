@@ -206,6 +206,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
+                    <div><a onclick="showMDTip()">(возможности по оформлению текста)</a></div>
                     <textarea id="modalTextEdit" class="modal-text-edit" oninput="autoGrow(this);"></textarea>
                 </div>
                 <div class="modal-footer">
@@ -216,7 +217,7 @@
         </div>
     </div>
 
-    <!-- modal windows for picture management -->
         <th:block th:include="admin/picture_modal::pick_and_upload"></th:block>
+        <th:block th:include="admin/tooltip::floattip"></th:block>
     </body>
 </html>
