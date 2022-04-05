@@ -147,24 +147,10 @@
                     </div>
                 </div>
                 <div class="col-md-12 templatemo-slogan text-center">
-                    <div class="col-md-3">
-                        <a class="colorbox" href="./../images/cert.jpg" data-group="gallery-graphic">
-                            <img src="./../images/cert.jpg" class="img-responsive" alt="cert" />
-                        </a>
-                    </div>
-                    <div class="col-md-3">
-                        <a class="colorbox" href="./../images/cert.jpg" data-group="gallery-graphic">
-                            <img src="./../images/cert.jpg" class="img-responsive" alt="cert" />
-                        </a>
-                    </div>
-                    <div class="col-md-3">
-                        <a class="colorbox" href="./../images/cert.jpg" data-group="gallery-graphic">
-                            <img src="./../images/cert.jpg" class="img-responsive" alt="cert" />
-                        </a>
-                    </div>
-                    <div class="col-md-3">
-                        <a class="colorbox" href="./../images/cert.jpg" data-group="gallery-graphic">
-                            <img src="./../images/cert.jpg" class="img-responsive" alt="cert" />
+                    <div class="col-md-3" th:each="certificate: ${certificates}">
+                        <a class="colorbox" th:href="'/p/' + ${certificate.pictureId}" data-group="gallery-graphic">
+                            <img th:src="'/p/' + ${certificate.pictureId}" class="img-responsive"
+                                 th:alt="${certificate.text}" />
                         </a>
                     </div>
                 </div>

@@ -4,10 +4,7 @@ import com.cms.megaprint.configuration.VarConfig;
 import com.cms.megaprint.model.CommonValue;
 import com.cms.megaprint.model.Description;
 import com.cms.megaprint.model.Goods;
-import com.cms.megaprint.service.intface.CommonValueService;
-import com.cms.megaprint.service.intface.GoodsService;
-import com.cms.megaprint.service.intface.ServiceCategoryService;
-import com.cms.megaprint.service.intface.TeammateService;
+import com.cms.megaprint.service.intface.*;
 import com.cms.megaprint.service.common.TextDecoratorService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,6 +22,7 @@ public class IndexController {
     private final ServiceCategoryService serviceCategoryService;
     private final TeammateService teammateService;
     private final GoodsService goodsService;
+    private final CertificateService certificateService;
 
     public IndexController(
             VarConfig varConfig,
@@ -32,13 +30,15 @@ public class IndexController {
             TextDecoratorService textDecoratorService,
             ServiceCategoryService serviceCategoryService,
             TeammateService teammateService,
-            GoodsService goodsService) {
+            GoodsService goodsService,
+            CertificateService certificateService) {
         this.varConfig = varConfig;
         this.commonValueService = commonValueService;
         this.textDecoratorService = textDecoratorService;
         this.serviceCategoryService = serviceCategoryService;
         this.teammateService = teammateService;
         this.goodsService = goodsService;
+        this.certificateService = certificateService;
     }
 
     @RequestMapping({"", "/", "index", "index.html"})
@@ -65,6 +65,7 @@ public class IndexController {
         }
 
         model.addAttribute("goodsFormattedDescription", goodsDescription);
+        model.addAttribute("certificates", certificateService.findAll());
 
         return "public/index";
     }
