@@ -137,3 +137,16 @@ body {
      background: #ffffff;
      transition: 0.1s;
 }
+
+.inline-text-edit {
+    border: 0;
+    outline: 0;
+    background: inherit;
+    border-bottom: 1px solid black;
+    margin: 5px;
+}
+
+.inline-checkbox {
+    width: 18px;
+    height: 18px;
+}
