@@ -60,11 +60,21 @@
                         </div>
                         <div class="navbar-collapse collapse" id="templatemo-nav-bar">
                             <ul class="nav navbar-nav navbar-right" style="margin-top: 40px;">
-                                <li class="active"><a href="#templatemo-top">Домой</a></li>
-                                <li><a href="#templatemo-service">Услуги</a></li>
-                                <li><a href="#templatemo-about">О нас</a></li>
-                                <li><a href="#templatemo-blog">Барахолка</a></li>
-                                <li><a href="#templatemo-contact">Контакты</a></li>
+                                <li class="active" th:if="${siteSections['home'].visible}">
+                                    <a href="#templatemo-top" th:text="${siteSections['home'].caption}">Домой</a>
+                                </li>
+                                <li th:if="${siteSections['service'].visible}">
+                                    <a href="#templatemo-service" th:text="${siteSections['service'].caption}">Услуги</a>
+                                </li>
+                                <li th:if="${siteSections['teammate'].visible}">
+                                    <a href="#templatemo-about" th:text="${siteSections['teammate'].caption}">О нас</a>
+                                </li>
+                                <li th:if="${siteSections['goods'].visible}">
+                                    <a href="#templatemo-blog" th:text="${siteSections['goods'].caption}">Барахолка</a>
+                                </li>
+                                <li th:if="${siteSections['contact'].visible}">
+                                    <a href="#templatemo-contact" th:text="${siteSections['contact'].caption}">Контакты</a>
+                                </li>
                             </ul>
                         </div><!--/.nav-collapse -->
                     </div><!--/.container-fluid -->
@@ -72,7 +82,7 @@
             </div> <!-- /container -->
         </div>
         
-        <div>
+        <div th:if="${siteSections['carousel'].visible}">
             <!-- Carousel -->
             <div id="templatemo-carousel" class="carousel slide" data-ride="carousel">
                 <!-- Indicators -->
@@ -126,7 +136,7 @@
             </div><!-- /#templatemo-carousel -->
         </div>
 
-        <div class="templatemo-welcome" id="templatemo-welcome">
+        <div th:if="${siteSections['home'].visible}" class="templatemo-welcome" id="templatemo-welcome">
             <div class="container">
                 <div class="col-md-12 templatemo-slogan text-center">
                     <div class="txt_slogan" th:utext="${center_text}"></div>
@@ -146,7 +156,7 @@
                         <div th:utext="${three_col_3}"></div>
                     </div>
                 </div>
-                <div class="col-md-12 templatemo-slogan text-center">
+                <div th:if="${siteSections['certificate'].visible}" class="col-md-12 templatemo-slogan text-center">
                     <div class="col-md-3" th:each="certificate: ${certificates}">
                         <a class="colorbox" th:href="'/p/' + ${certificate.pictureId}" data-group="gallery-graphic">
                             <img th:src="'/p/' + ${certificate.pictureId}" class="img-responsive"
@@ -157,12 +167,13 @@
             </div>
         </div>
         
-        <div class="templatemo-service" id="templatemo-service">
+        <div th:if="${siteSections['service'].visible}" class="templatemo-service" id="templatemo-service">
             <div class="container">
                 <div class="row">
                     <div class="templatemo-line-header" style="margin-top:0px;" >
                         <div class="text-center">
-                            <hr class="team_hr team_hr_left hr_gray"/><span class="txt_darkgrey">УСЛУГИ</span>
+                            <hr class="team_hr team_hr_left hr_gray"/>
+                            <span class="txt_darkgrey upper-case" th:text="${siteSections['service'].caption}">УСЛУГИ</span>
                             <hr class="team_hr team_hr_right hr_gray" />
                         </div>
                     </div>
@@ -191,12 +202,13 @@
             </div>
         </div>
 
-        <div class="templatemo-team" id="templatemo-about">
+        <div th:if="${siteSections['teammate'].visible}" class="templatemo-team" id="templatemo-about">
             <div class="container">
                 <div class="row">
                     <div class="templatemo-line-header">
                         <div class="text-center">
-                            <hr class="team_hr team_hr_left"/><span>НАША КОМАНДА</span>
+                            <hr class="team_hr team_hr_left"/>
+                            <span class="upper-case" th:text="${siteSections['teammate'].caption}">НАША КОМАНДА</span>
                             <hr class="team_hr team_hr_right" />
                         </div>
                     </div>
@@ -225,12 +237,13 @@
             </div>
         </div><!-- /.templatemo-team -->
 
-        <div id="templatemo-blog">
+        <div th:if="${siteSections['goods'].visible}" id="templatemo-blog">
             <div class="container">
                 <div class="row">
                     <div class="templatemo-line-header" >
                         <div class="text-center">
-                            <hr class="team_hr team_hr_left hr_gray"/><span class="span_blog txt_darkgrey">БАРАХОЛКА</span>
+                            <hr class="team_hr team_hr_left hr_gray"/>
+                            <span class="span_blog txt_darkgrey upper-case" th:text="${siteSections['goods'].caption}">БАРАХОЛКА</span>
                             <hr class="team_hr team_hr_right hr_gray" />
                         </div>
                     </div>
@@ -274,12 +287,13 @@
             </div>
         </div>
 
-        <div id="templatemo-contact">
+        <div th:if="${siteSections['contact'].visible}" id="templatemo-contact">
             <div class="container">
                 <div class="row">
                     <div class="templatemo-line-header head_contact">
                         <div class="text-center">
-                            <hr class="team_hr team_hr_left hr_gray"/><span class="txt_darkgrey">КОНТАКТЫ</span>
+                            <hr class="team_hr team_hr_left hr_gray"/>
+                            <span class="txt_darkgrey upper-case" th:text="${siteSections['contact'].caption}">КОНТАКТЫ</span>
                             <hr class="team_hr team_hr_right hr_gray"/>
                         </div>
                     </div>
