@@ -69,7 +69,7 @@
                 <span>Иконка сайта</span>
             </div>
             <div class="col-12 col-sm-6 col-md-3 col-lg-3">
-                <img src="./../images/globe.png" class="th_favicon" width="22" height="22"/>
+                <img src="./../images/globe.png" class="th_favicon" height="22"/>
             </div>
         </div>
         <div class="row even-row hover-highlight">
@@ -90,10 +90,58 @@
         </div>
         <div class="row even-row hover-highlight">
             <div class="col-12 col-sm-6 sol-md-3 col-lg-3">
-                <span>Электронная почти</span>
+                <span>Электронная почта</span>
             </div>
             <div class="col-12 col-sm-6 col-md-3 col-lg-3">
                 <span class="th_top_email"></span>
+            </div>
+        </div>
+        <div class="row odd-row hover-highlight">
+            <div class="col-12 col-sm-6 sol-md-3 col-lg-3">
+                <span>Сайт</span>
+            </div>
+            <div class="col-12 col-sm-6 col-md-3 col-lg-3">
+                <span class="th_site_address"></span>
+            </div>
+        </div>
+        <div class="row even-row hover-highlight">
+            <div class="col-12 col-sm-6 sol-md-3 col-lg-3">
+                <span>Адрес</span>
+            </div>
+            <div class="col-12 col-sm-6 col-md-3 col-lg-3">
+                <span class="th_address"></span>
+            </div>
+        </div>
+        <div class="row odd-row hover-highlight">
+            <div class="col-12 col-sm-6 sol-md-3 col-lg-3">
+                <span>Подсказка под картой</span>
+            </div>
+            <div class="col-12 col-sm-6 col-md-3 col-lg-3">
+                <span class="th_map_tip"></span>
+            </div>
+        </div>
+        <div class="row even-row hover-highlight">
+            <div class="col-12 col-sm-6 sol-md-3 col-lg-3">
+                <span>Часы работы</span>
+            </div>
+            <div class="col-12 col-sm-6 col-md-3 col-lg-3">
+                <span class="th_working_hours"></span>
+            </div>
+        </div>
+        <div class="row odd-row hover-highlight">
+            <div class="col-12 col-sm-6 sol-md-3 col-lg-3">
+                <span>Фоновое изображение</span>
+            </div>
+            <div class="col-12 col-sm-6 col-md-3 col-lg-3">
+                <img src="./../images/templatemo_carousel_bg.jpg" class="th_background_picture" height="22"/>
+            </div>
+        </div>
+        <div class="row even-row hover-highlight">
+            <div class="col-12 col-sm-6 sol-md-3 col-lg-3">
+                <span>Подпись к фоновому изображению</span>
+            </div>
+            <div class="col-12 col-sm-6 col-md-3 col-lg-3">
+                <span class="th_background_picture_caption"></span>
             </div>
         </div>
         <div class="row odd-row hover-highlight">
@@ -168,6 +216,14 @@
                 <span class="th_carousel_text_2"></span>
             </div>
         </div>
+        <div class="row even-row hover-highlight">
+            <div class="col-12 col-sm-6 sol-md-3 col-lg-3">
+                <span>Текст внизу страницы</span>
+            </div>
+            <div class="col-12 col-sm-6 col-md-3 col-lg-3">
+                <span class="th_footer_text"></span>
+            </div>
+        </div>
     </div>
 
 
@@ -189,8 +245,17 @@
             commonValues.set('top_caption', /*[[${top_caption}]]*/'');
             commonValues.set('carousel_welcome', /*[[${carousel_welcome}]]*/'');
             commonValues.set('carousel_text_1', /*[[${carousel_text_1}]]*/'');
-            commonValues.set('carousel_text_2', /*[[${carousel_text_2}]]*/'(пусто)');
+            commonValues.set('carousel_text_2', /*[[${carousel_text_2}]]*/'');
             commonValues.set('favicon', /*[[${favicon}]]*/'');
+            commonValues.set('working_hours', /*[[${working_hours}]]*/ '');
+            commonValues.set('address', /*[[${address}]]*/ '');
+            commonValues.set('site_address', /*[[${site_address}]]*/ '');
+            commonValues.set('map_lat', /*[[${map_lat}]]*/ '');
+            commonValues.set('map_lon', /*[[${map_lon}]]*/ '');
+            commonValues.set('map_tip', /*[[${map_tip}]]*/ '');
+            commonValues.set('footer_text', /*[[${footer_text}]]*/ '');
+            commonValues.set('background_picture', /*[[${background_picture}]]*/ '');
+            commonValues.set('background_picture_caption', /*[[${background_picture_caption}]]*/ '');
             updateDoc();
     </script>
 
