@@ -4,11 +4,9 @@ import com.cms.megaprint.model.SiteSection;
 import com.cms.megaprint.controller.common.CrudController;
 import com.cms.megaprint.service.common.CrudService;
 import com.cms.megaprint.service.intface.SiteSectionService;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.Optional;
 
 @RestController
@@ -29,5 +27,11 @@ public class SiteSectionController extends CrudController<SiteSection, Long> {
         }
         return object;
     }
+
+//    for debug purposes
+//    @GetMapping("/getAsHashMap")
+//    public HashMap<String, SiteSection> getAsHashMap() {
+//        return ((SiteSectionService)service).getAsHashMap();
+//    }
 
 }
