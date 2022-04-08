@@ -1,7 +1,6 @@
 package com.cms.megaprint.repository.implementation;
 
 import com.cms.megaprint.db.HibernateSessionFactoryUtil;
-import com.cms.megaprint.model.Goods;
 import com.cms.megaprint.model.SiteSection;
 import com.cms.megaprint.repository.implementation.hibernate.CrudRepoHibernateImpl;
 import com.cms.megaprint.repository.intface.SiteSectionRepository;
@@ -11,7 +10,6 @@ import org.hibernate.query.Query;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Optional;
 import java.util.function.Function;
 import java.util.stream.Collectors;
