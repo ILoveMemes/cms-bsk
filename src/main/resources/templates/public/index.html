@@ -302,13 +302,19 @@
                     <div class="col-md-8">
                         <div class="templatemo-contact-map" id="map-canvas"> </div>  
                         <div class="clearfix"></div>
-                        <i>Вы можете найти нас во дворе <span class="txt_orange">телеграфа</span></i>
+                        <span th:utext="${map_tip}"></span>
                     </div>
                     <div class="col-md-4 contact_right">
-                        <p>Время работы: Пн-Пт с 8:00 до 17:00, Сб-Вс Выходные</p>
-                        <p><img src="./../images/location.png" alt="icon 1" />Воронежская обл., г. Борисоглебск, ул. Карла Маркса, 76</p>
+                        <p th:utext="${working_hours}"></p>
+                        <p><img src="./../images/location.png" alt="icon 1" />
+                            <span th:utext="${address}"></span>
+                        </p>
                         <p><img src="./../images/phone1.png"  alt="icon 2" /><span th:utext="${top_phone}"></span></p>
-                        <p><img src="./../images/globe.png" alt="icon 3" /><a class="link_orange" href="http://www.megaprintbsk.ru/"><span class="txt_orange">www.megaprintbsk.ru</span></a></p>
+                        <p><img src="./../images/globe.png" alt="icon 3" />
+                            <a class="link_orange" tH:href="'http://' + ${site_address} + '/'">
+                                <span class="txt_orange" th:utext="${site_address}"></span>
+                            </a>
+                        </p>
                         <div class="form-horizontal">
                             <div class="form-group">
                                 <input id="senderName" type="text" class="form-control" placeholder="Ваше имя..." maxlength="40" />
@@ -363,9 +369,7 @@
                             <div class="height30"></div>
                         </div>
                         <div class="footer_bottom_content">
-                   			<span id="footer-line">Copyright © 2021 <a href="#">МегаПринт</a>
-                            
-                            - Made with love -</span>
+                   			<span id="footer-line" th:utext="${footer_text}">- Made with love -</span>
                         </div>
                         
                     </div>
