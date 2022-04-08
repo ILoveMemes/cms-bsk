@@ -80,17 +80,17 @@ function scrollTo(selectors)
 
 }
 
-function initYMap() {
+function initYMap(mark) {
     ymaps.ready(function(){
         // создание экземпляра карты и его привязка к контейнеру с id="map"
         map = new ymaps.Map("map-canvas", {
             // центр карты
-            center: [51.363650, 42.073161],
+            center: mark,
             // коэффициент масштабирования
             zoom: 17,
             controls: []
         });
-        map.geoObjects.add(new ymaps.Placemark([51.363650, 42.073161], {
+        map.geoObjects.add(new ymaps.Placemark(mark, {
             iconCaption: 'Мы здесь' }, {
             iconColor: '#ff7600'
         }));
