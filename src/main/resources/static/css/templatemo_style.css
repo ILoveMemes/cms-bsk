@@ -62,6 +62,13 @@ h1, h2, h3, h4, h5, h6, span, p { font-family: 'Open Sans', Arial, Helvetice Neu
     text-transform: uppercase;
 }
 
+.background-picture-caption {
+    margin-top: 330px;
+    position: absolute;
+    color: #fff;
+    z-index: 900;
+}
+
 #templatemo-carousel {
     background: url('../images/templatemo_carousel_bg.jpg') no-repeat center center fixed; 
     -webkit-background-size: cover;
@@ -763,6 +770,7 @@ ul.templatemo-project-gallery  li  a img:hover {
 
 .editable {
     cursor: pointer;
+    padding: 0px 10px;
 }
 
 .editable:hover {
