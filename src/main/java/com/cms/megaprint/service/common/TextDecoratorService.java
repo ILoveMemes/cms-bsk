@@ -61,7 +61,7 @@ public class TextDecoratorService {
                 linkUrl = linkText.substring(matcherBrackets.start() + 1, matcherBrackets.end() - 1);
             }
             Pattern patternRBrackets = Pattern.compile("\\((.*?)\\)");
-            Matcher matcherRBrackets = patternBrackets.matcher(linkText);
+            Matcher matcherRBrackets = patternRBrackets.matcher(linkText);
             String linkCaption = "";
             if (matcherRBrackets.find()) {
                 linkCaption = linkText.substring(matcherRBrackets.start() + 1, matcherRBrackets.end() - 1);
