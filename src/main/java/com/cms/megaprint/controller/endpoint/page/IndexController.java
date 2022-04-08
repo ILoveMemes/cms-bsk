@@ -1,6 +1,5 @@
 package com.cms.megaprint.controller.endpoint.page;
 
-import com.cms.megaprint.configuration.SiteSection;
 import com.cms.megaprint.configuration.VarConfig;
 import com.cms.megaprint.model.CommonValue;
 import com.cms.megaprint.model.Description;
@@ -13,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Optional;
 
 @Controller
 public class IndexController {
@@ -25,6 +23,7 @@ public class IndexController {
     private final TeammateService teammateService;
     private final GoodsService goodsService;
     private final CertificateService certificateService;
+    private final SiteSectionService siteSectionService;
 
     public IndexController(
             VarConfig varConfig,
@@ -33,7 +32,8 @@ public class IndexController {
             ServiceCategoryService serviceCategoryService,
             TeammateService teammateService,
             GoodsService goodsService,
-            CertificateService certificateService) {
+            CertificateService certificateService,
+            SiteSectionService siteSectionService) {
         this.varConfig = varConfig;
         this.commonValueService = commonValueService;
         this.textDecoratorService = textDecoratorService;
@@ -41,12 +41,13 @@ public class IndexController {
         this.teammateService = teammateService;
         this.goodsService = goodsService;
         this.certificateService = certificateService;
+        this.siteSectionService = siteSectionService;
     }
 
     @RequestMapping({"", "/", "index", "index.html"})
     public String index(Model model) {
 
-        model.addAttribute("siteSections", varConfig.getSiteSections());
+        model.addAttribute("siteSections", siteSectionService.getAsHashMap());
 
         for (CommonValue cValue: commonValueService.findAll()) {
             model.addAttribute(cValue.getKey(), textDecoratorService.decorate(cValue.getValue()));
