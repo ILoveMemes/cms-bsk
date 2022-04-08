@@ -1,5 +1,6 @@
 package com.cms.megaprint.configuration;
 
+import com.cms.megaprint.model.SiteSection;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.context.properties.ConfigurationProperties;

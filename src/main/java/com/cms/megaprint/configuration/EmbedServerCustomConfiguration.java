@@ -22,7 +22,7 @@ public class EmbedServerCustomConfiguration implements WebServerFactoryCustomize
         this.commonValueService = commonValueService;
     }
 
-    private void refreshSiteSection(String sectionName) {
+    /*private void refreshSiteSection(String sectionName) {
         Optional<CommonValue> vCaption;
         Optional<CommonValue> vVisible;
         boolean anyChange;
@@ -42,19 +42,19 @@ public class EmbedServerCustomConfiguration implements WebServerFactoryCustomize
         if (anyChange) {
             varConfig.getSiteSections().put(sectionName, siteSection);
         }
-    }
+    }*/
 
     @Override
     public void customize(ConfigurableServletWebServerFactory factory) {
 
         // refresh configuration before server starts
-        refreshSiteSection("home");
+        /*refreshSiteSection("home");
         refreshSiteSection("service");
         refreshSiteSection("teammate");
         refreshSiteSection("goods");
         refreshSiteSection("contact");
         refreshSiteSection("certificate");
-        refreshSiteSection("carousel");
+        refreshSiteSection("carousel");*/
 
         factory.setPort(varConfig.getPort());
         try {
