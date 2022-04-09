@@ -27,7 +27,7 @@ public class UserRepositoryImpl extends CrudRepoHibernateImpl<User, Long> implem
     private Long getUserCount() {
         Session session = hibernateSessionFactoryUtil.getSessionFactory().openSession();
         Transaction tx1 = session.beginTransaction();
-        Query query = session.createQuery("select count(u) from  User");
+        Query query = session.createQuery("select count(u) from  User u");
         Long result = (Long) query.getSingleResult();
         tx1.commit();
         session.close();
