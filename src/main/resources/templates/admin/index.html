@@ -89,11 +89,52 @@
                 <div class="top-menu-button" onclick="location.href='/admin/picture'">Хранилище изображений</div>
             </div>
         </div>
+        <div class="row">
+            <div class="col-12 col-sm-12 sol-md-4 col-lg-4">
+                <div class="top-menu-button" onclick="$('#modalWindow').modal();">Изменить логин и пароль</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-sm-12 sol-md-4 col-lg-4">
+                <div class="top-menu-button" onclick="location.href='/logout'">Выйти</div>
+            </div>
+        </div>
     </div>
 
     <script src="./../js/jquery.min.js" type="text/javascript"></script>
     <script src="./../js/bootstrap.min.js" type="text/javascript"></script>
     <script src="./../js/colorbox/jquery.colorbox-min.js" type="text/javascript"></script>
+
+    <!-- Modal window for password change -->
+    <div class="modal fade" id="modalWindow" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <form action="#" th:action="@{/admin/change_password}" th:object="${passwordChangeDto}" method="post">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalLabel">Изменить пароль</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div>Текущий пароль</div>
+                    <input type="password" th:field="*{oldPass}"/>
+                    <div>Новое имя пользователя</div>
+                    <input type="text" th:field="*{newUname}" th:value="*{newUname}"/>
+                    <div>Новый пароль</div>
+                    <input type="password" th:field="*{newPass}"/>
+                    <div>Повторите новый пароль</div>
+                    <input type="password" th:field="*{newPassConf}"/>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                    <button type="submit" class="btn btn-primary" id="modalApply">Сохранить изменения</button>
+                </div>
+            </div>
+            </form>
+        </div>
+    </div>
 
     </body>
 </html>

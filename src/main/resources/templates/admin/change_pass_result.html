@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <title>Изменение пароля</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="./../css/bootstrap.css" rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="./../js/colorbox/colorbox.css" rel='stylesheet' type='text/css'>
+    <link href="./../css/templatemo_style.css" rel='stylesheet' type='text/css'>
+    <link href="./../css/message.css" rel='stylesheet' type='text/css'>
+</head>
+<body>
+
+<div class="templatemo-top-bar">
+    <div class="container">
+        <div class="subheader">
+            <div class="pull-left">
+                <span class="head-mod">Изменение пароля</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div style="height: 20px;"></div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-sm-12 sol-md-10 col-lg-6">
+            <div th:if="${errorMsg}" style="background: #FAA;padding:20px;" th:text="${errorMsg}"></div>
+            <div th:unless="${errorMsg}" style="background: #c3ffaa;padding:20px;">
+                Данные аутентификации успешно изменены
+            </div>
+            <div class="inline-button-orange" onclick="location.href='/admin'" style="color:#fff;">Панель администратора</div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
