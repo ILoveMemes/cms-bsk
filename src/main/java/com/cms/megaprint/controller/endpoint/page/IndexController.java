@@ -1,9 +1,7 @@
 package com.cms.megaprint.controller.endpoint.page;
 
 import com.cms.megaprint.configuration.VarConfig;
-import com.cms.megaprint.model.CommonValue;
-import com.cms.megaprint.model.Description;
-import com.cms.megaprint.model.Goods;
+import com.cms.megaprint.model.*;
 import com.cms.megaprint.service.intface.*;
 import com.cms.megaprint.service.common.TextDecoratorService;
 import org.springframework.stereotype.Controller;
@@ -11,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -54,7 +53,14 @@ public class IndexController {
         }
 
         model.addAttribute("serviceCategories", serviceCategoryService.findAllThatShowOnMain());
-        model.addAttribute("teammates", teammateService.findAll());
+
+        List<Teammate> teammateList = teammateService.findAll();
+        model.addAttribute("teammates", teammateList);
+        String teammatesClass = "col-md-3";
+        if (teammateList.size() < 4) {
+            teammatesClass = "col-md-" + String.valueOf(12 / teammateList.size());
+        }
+        model.addAttribute("teammates_class", teammatesClass);
 
         model.addAttribute("goods", goodsService.findAllThatShowOnMain());
 
@@ -70,7 +76,14 @@ public class IndexController {
         }
 
         model.addAttribute("goodsFormattedDescription", goodsDescription);
-        model.addAttribute("certificates", certificateService.findAll());
+
+        List<Certificate> certificateList = certificateService.findAll();
+        model.addAttribute("certificates", certificateList);
+        String certificatesClass = "col-md-3";
+        if (certificateList.size() < 5) {
+            certificatesClass = "col-md-" + String.valueOf(12 / certificateList.size());
+        }
+        model.addAttribute("certificates_class", certificatesClass);
 
         return "public/index";
     }

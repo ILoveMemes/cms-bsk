@@ -157,10 +157,11 @@
                         <div th:utext="${three_col_3}"></div>
                     </div>
                 </div>
-                <div th:if="${siteSections['certificate'].visible}" class="col-md-12 templatemo-slogan text-center">
-                    <div class="col-md-3" th:each="certificate: ${certificates}">
+                <div class="clearfix"> </div>
+                <div th:if="${siteSections['certificate'].visible}" class="row text-center">
+                    <div th:class="${certificates_class}" th:each="certificate: ${certificates}">
                         <a class="colorbox" th:href="'/p/' + ${certificate.pictureId}" data-group="gallery-graphic">
-                            <img th:src="'/p/' + ${certificate.pictureId}" class="img-responsive"
+                            <img th:src="'/p/' + ${certificate.pictureId}" class="img-responsive center-block"
                                  th:alt="${certificate.text}" />
                         </a>
                     </div>
@@ -216,7 +217,7 @@
                 </div>
                 <div class="clearfix"> </div>
                     <ul class="row row_team">
-                        <li th:each="teammate: ${teammates}" class="col-lg-3 col-md-3 col-sm-6 ">
+                        <li th:each="teammate: ${teammates}" th:class="${teammates_class}">
                             <div class="text-center">
                                 <div class="member-thumb">
                                     <img th:src="@{/p/{id}(id = ${teammate.photoId})}" class="img-responsive" th:alt="${teammate.name}" width="500" height="500" />
@@ -255,9 +256,12 @@
                     <div th:each="goodsEntity: ${goods}" class="col-sm-5 col-md-6 blog_post"
                          th:if="${goodsEntity.showOnMain}">
                         <ul class="list-inline">
-                            <li class="col-md-4"><a href="#">
-                                <img class="img-responsive" th:src="'/p/' + ${goodsEntity.imageId}"
-                                     width="150" height="150" th:alt="${goodsEntity.title}" /></a>
+                            <li class="col-md-4">
+                                <div th:onclick="'showGoodsFullDescription(' + ${goodsEntity.id} + ');'"
+                                    style="cursor:pointer;">
+                                    <img class="img-responsive" th:src="'/p/' + ${goodsEntity.imageId}"
+                                         width="150" height="150" th:alt="${goodsEntity.title}" />
+                                </div>
                             </li>
                             <li class="col-md-8">
                                 <div class="pull-left">
@@ -379,7 +383,7 @@
         <script src="./../js/jquery.min.js" type="text/javascript"></script>
         <script src="./../js/bootstrap.min.js"  type="text/javascript"></script>
         <script src="./../js/stickUp.min.js"  type="text/javascript"></script>
-        <script src="./../js/colorbox/jquery.colorbox-min.js"  type="text/javascript"></script>
+        <script src="./../js/colorbox/jquery.colorbox.js"  type="text/javascript"></script>
         <script src="./../js/templatemo_script.js"  type="text/javascript"></script>
         <script th:inline="javascript">
             initYMap([
