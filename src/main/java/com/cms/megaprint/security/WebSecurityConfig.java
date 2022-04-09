@@ -15,13 +15,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests().antMatchers("/").anonymous()
-                .and().authorizeRequests().antMatchers(
-                "/admin2").authenticated()
-                .antMatchers("/admin2/*").authenticated()
-                /*
-                    temporary deactivated
-                    need to include all crud endpoints
-                */
+                .and().authorizeRequests()
+                .antMatchers("/admin", "/admin/*", "/certificates/*", "/val/*",
+                        "/goods/*", "/messages/*", "/pic/*", "/service_categories/*",
+                        "/service_units/*", "/site_sections/*", "/teammates/*",
+                        "/teammates_social_network/*", "/user/*").authenticated()
                 .and().formLogin()
                 .loginPage("/login")
                 .permitAll()
