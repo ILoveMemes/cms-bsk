@@ -57,7 +57,7 @@ public class IndexController {
         List<Teammate> teammateList = teammateService.findAll();
         model.addAttribute("teammates", teammateList);
         String teammatesClass = "col-md-3";
-        if (teammateList.size() < 4) {
+        if ((teammateList.size() > 0) && (teammateList.size() < 4)) {
             teammatesClass = "col-md-" + String.valueOf(12 / teammateList.size());
         }
         model.addAttribute("teammates_class", teammatesClass);
@@ -80,7 +80,7 @@ public class IndexController {
         List<Certificate> certificateList = certificateService.findAll();
         model.addAttribute("certificates", certificateList);
         String certificatesClass = "col-md-3";
-        if (certificateList.size() < 5) {
+        if ((certificateList.size() > 0) && (certificateList.size() < 5)) {
             certificatesClass = "col-md-" + String.valueOf(12 / certificateList.size());
         }
         model.addAttribute("certificates_class", certificatesClass);
