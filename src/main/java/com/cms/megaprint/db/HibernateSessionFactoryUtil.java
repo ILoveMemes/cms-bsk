@@ -29,7 +29,7 @@ public class HibernateSessionFactoryUtil {
             properties.put(Environment.USER, varConfig.getDbUser());
             properties.put(Environment.PASS, varConfig.getDbPass());
             properties.put(Environment.DIALECT, "org.hibernate.dialect.PostgreSQL10Dialect");
-            properties.put(Environment.SHOW_SQL, "true");
+            properties.put(Environment.SHOW_SQL, "false");
             properties.put(Environment.POOL_SIZE, "100");
             properties.put(Environment.CURRENT_SESSION_CONTEXT_CLASS, "thread");
             properties.put(Environment.HBM2DDL_AUTO, "none");
