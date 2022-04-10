@@ -26,7 +26,9 @@ public class EmbedServerCustomConfiguration implements WebServerFactoryCustomize
     public void customize(ConfigurableServletWebServerFactory factory) {
         factory.setPort(varConfig.getPort());
         try {
-            factory.setAddress(InetAddress.getByName(varConfig.getAddress()));
+            if (!varConfig.getAddress().equals("default")) {
+                factory.setAddress(InetAddress.getByName(varConfig.getAddress()));
+            }
         } catch (UnknownHostException e) {
             e.printStackTrace();
         }
