@@ -26,7 +26,7 @@ public class SiteSectionAdminController {
         }
         model.addAttribute("siteSections", siteSectionService.getAsHashMap());
 
-        return "/admin/site_section";
+        return "admin/site_section";
     }
 
 }
