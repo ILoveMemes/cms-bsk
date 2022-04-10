@@ -168,7 +168,7 @@
                     <div th:class="${certificates_class}" th:each="certificate: ${certificates}">
                         <a class="colorbox" th:href="'/p/' + ${certificate.pictureId}" data-group="gallery-graphic">
                             <img th:src="'/p/' + ${certificate.pictureId}" class="img-responsive center-block"
-                                 th:alt="${certificate.text}" />
+                                 th:alt="${certificate.text}" style="max-height:250px;" />
                         </a>
                     </div>
                 </div>
