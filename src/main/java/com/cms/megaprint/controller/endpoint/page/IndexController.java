@@ -8,6 +8,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpServletRequest;
+import java.time.ZonedDateTime;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -23,6 +25,7 @@ public class IndexController {
     private final GoodsService goodsService;
     private final CertificateService certificateService;
     private final SiteSectionService siteSectionService;
+    private final VisitStatisticService visitStatisticService;
 
     public IndexController(
             VarConfig varConfig,
@@ -32,7 +35,8 @@ public class IndexController {
             TeammateService teammateService,
             GoodsService goodsService,
             CertificateService certificateService,
-            SiteSectionService siteSectionService) {
+            SiteSectionService siteSectionService,
+            VisitStatisticService visitStatisticService) {
         this.varConfig = varConfig;
         this.commonValueService = commonValueService;
         this.textDecoratorService = textDecoratorService;
@@ -41,10 +45,13 @@ public class IndexController {
         this.goodsService = goodsService;
         this.certificateService = certificateService;
         this.siteSectionService = siteSectionService;
+        this.visitStatisticService = visitStatisticService;
     }
 
     @RequestMapping({"", "/", "index", "index.html"})
-    public String index(Model model) {
+    public String index(HttpServletRequest httpServletRequest, Model model) {
+
+        visitStatisticService.addVisitToStatistic(httpServletRequest.getRemoteAddr(), ZonedDateTime.now());
 
         model.addAttribute("siteSections", siteSectionService.getAsHashMap());
 
