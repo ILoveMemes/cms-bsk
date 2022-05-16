@@ -6,6 +6,7 @@ import lombok.SneakyThrows;
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
+import org.springframework.http.CacheControl;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -24,9 +25,9 @@ import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
-import java.io.OutputStream;
 import java.util.Iterator;
 import java.util.Optional;
+import java.util.concurrent.TimeUnit;
 
 @Controller
 @RequestMapping("/p")
@@ -47,19 +48,22 @@ public class PictureGetController {
     ResponseEntity<byte[]> getPicture(@PathVariable String id) {
         Optional<Picture> pic = Optional.empty();
         try {
-            Long lId = Long.valueOf(id).longValue();
+            Long lId = Long.valueOf(id);
             pic = pictureService.findById(lId);
         }
         catch (Exception ex) {
             // do nothing. blank image will return
         }
+        CacheControl cacheControl = CacheControl.maxAge(10, TimeUnit.DAYS);
         return pic.map(picture -> ResponseEntity.ok()
                     .contentLength(picture.getData().length)
                     .contentType(MediaType.parseMediaType(new MimetypesFileTypeMap().getContentType(picture.getName())))
+                    .cacheControl(cacheControl)
                     .body(picture.getData()))
                 .orElse(ResponseEntity.ok()
                      .contentLength(blankImage.contentLength())
                      .contentType(MediaType.IMAGE_PNG)
+                     .cacheControl(cacheControl)
                      .body(IOUtils.toByteArray(blankImage.getInputStream())));
     }
 
@@ -68,12 +72,13 @@ public class PictureGetController {
     public @ResponseBody ResponseEntity<byte[]> getSmallPicture(@PathVariable String id) {
         Optional<Picture> pic = Optional.empty();
         try {
-            Long lId = Long.valueOf(id).longValue();
+            Long lId = Long.valueOf(id);
             pic = pictureService.findById(lId);
         }
         catch (Exception ex) {
             // do nothing. blank image will return
         }
+        CacheControl cacheControl = CacheControl.maxAge(10, TimeUnit.DAYS);
         int smLength = 0;
         byte[] smData = new byte[1];
         if (pic.isPresent()) {
@@ -85,7 +90,7 @@ public class PictureGetController {
             if (!imageWriters.hasNext())
                 throw new IllegalStateException("Writers Not Found!!");
 
-            ImageWriter imageWriter = (ImageWriter) imageWriters.next();
+            ImageWriter imageWriter = imageWriters.next();
             ImageOutputStream imageOutputStream = ImageIO.createImageOutputStream(outputStream);
             imageWriter.setOutput(imageOutputStream);
 
@@ -107,10 +112,12 @@ public class PictureGetController {
         return pic.map(picture -> ResponseEntity.ok()
                 .contentLength(finalSmData.length)
                 .contentType(MediaType.IMAGE_JPEG)
+                .cacheControl(cacheControl)
                 .body(finalSmData))
                 .orElse(ResponseEntity.ok()
                         .contentLength(blankImage.contentLength())
                         .contentType(MediaType.IMAGE_PNG)
+                        .cacheControl(cacheControl)
                         .body(IOUtils.toByteArray(blankImage.getInputStream())));
     }
 
